@@ -31,8 +31,8 @@
             "ChangePermissions": "Allow",
             "WebAuthoring": "Allow",
             "ExportXml": "Allow",
-            "RunExplainData": "Allow",
-            "CreateRefreshMetrics": "Allow"
+            "RunExplainData": "Deny",
+            "CreateRefreshMetrics": "Deny"
           }
         }
       ]
@@ -61,7 +61,7 @@
             "ViewComments": "Allow",
             "ShareView": "Allow",
             "ExportData": "Allow",
-            "ViewUnderlyingData": "Allow",
+            "ViewUnderlyingData": "Deny",
             "ExportImage": "Allow",
             "Delete": "Allow",
             "ChangeHierarchy": "Allow",
