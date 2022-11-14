@@ -87,6 +87,8 @@ def publish_workbook(server, data):
 
     print(type(new_workbook))
     print(new_workbook.__dict__)
+    print("new_workbook._id", new_workbook._id)
+    print("new_workbook._permissions", new_workbook._permissions)
 
     print(
         f"\nSuccessfully published {data['file_path']} Workbook in {data['project_path']} project in {data['site_name']} site.")
