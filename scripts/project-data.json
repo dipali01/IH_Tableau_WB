@@ -3,10 +3,10 @@
     {
       "server_url": "https://tableau.devinvh.com/",
       "site_name": "Enterprise",
-      "name": "Superstore _Profitability_Overview",
+      "name": "Superstore 20",
       "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
-      "file_path": "Superstore _Profitability_Overview.twb",
-      "project_path": "Technology",
+      "file_path": "Superstore 20.twb",
+      "project_path": "Tech Testing",
       "tags": [],
       "hidden_views": [],
       "is_workbook_new": false,
@@ -27,12 +27,12 @@
             "ViewUnderlyingData": "Allow",
             "ExportImage": "Allow",
             "Delete": "Allow",
-            "ChangeHierarchy": "Allow",
-            "ChangePermissions": "Allow",
-            "WebAuthoring": "Allow",
-            "ExportXml": "Allow",
-            "RunExplainData": "Allow",
-            "CreateRefreshMetrics": "Allow"
+            "ChangeHierarchy": "Deny",
+            "ChangePermissions": "Deny",
+            "WebAuthoring": "Deny",
+            "ExportXml": "Deny",
+            "RunExplainData": "Deny",
+            "CreateRefreshMetrics": "Deny"
           }
         }
       ]
