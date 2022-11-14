@@ -85,11 +85,6 @@ def publish_workbook(server, data):
     new_workbook = server.workbooks.publish(
         new_workbook, wb_path, publish_type, hidden_views=data['hidden_views'] if len(data['hidden_views']) > 0 else None)
 
-    print(type(new_workbook))
-    print(new_workbook.__dict__)
-    print("new_workbook._id", new_workbook._id)
-    print("new_workbook._permissions", new_workbook._permissions)
-
     print(
         f"\nSuccessfully published {data['file_path']} Workbook in {data['project_path']} project in {data['site_name']} site.")
 
@@ -99,18 +94,8 @@ def publish_workbook(server, data):
         new_workbook = server.workbooks.update(
             new_workbook)
         print("\nUpdate Workbook Successfully and set Tags.")
-    
+
     return new_workbook._id
-
-
-def get_workbook_id(server, data):
-    """
-    Function Description
-    """
-    all_workbooks_items, pagination_item = server.workbooks.get()
-    workbook_id_list = [
-        workbook.id for workbook in all_workbooks_items if workbook.name == data['name']]
-    return workbook_id_list
 
 
 def get_group_id(server, permission_group_name):
@@ -218,7 +203,6 @@ def main(arguments):
             else:
                 # Step: Form a new workbook item and publish.
                 wb_id = publish_workbook(server, data)
-
 
                 if len(data['permissions']) > 0:
                     for permission_data in data['permissions']:

@@ -3,9 +3,9 @@
     {
       "server_url": "https://tableau.devinvh.com/",
       "site_name": "Enterprise",
-      "name": "Forecast",
+      "name": "Sample",
       "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
-      "file_path": "Forecast.twbx",
+      "file_path": "Sample.twbx",
       "project_path": "Tech Testing",
       "tags": [],
       "hidden_views": [],
