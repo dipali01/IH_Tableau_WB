@@ -9,7 +9,7 @@
       "project_path": "Tech Testing",
       "tags": [],
       "hidden_views": [],
-      "is_workbook_new": false,
+      "is_workbook_new": true,
       "show_tabs": true,
       "is_site_default": true,
       "permissions": [
@@ -61,14 +61,14 @@
     },
     {
       "server_url": "https://tableau.devinvh.com/",
-      "site_name": "Enterprise",
+      "site_name": "DataLab",
       "name": "Superstore 20",
-      "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
+      "site_id": "e4fc3628-68b4-4a72-a956-9fc3c02192f4",
       "file_path": "Superstore 20.twb",
-      "project_path": "Tech Testing",
+      "project_path": "Test1",
       "tags": [],
       "hidden_views": [],
-      "is_workbook_new": false,
+      "is_workbook_new": true,
       "show_tabs": true,
       "is_site_default": true,
       "permissions": [

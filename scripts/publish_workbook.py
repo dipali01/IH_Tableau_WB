@@ -66,7 +66,7 @@ def get_project(server, data):
             f"The project for {data['file_path']} workbook could not be found.")
 
 
-def publish_workbook(server, data):
+def publish_wb(server, data):
     """
     Funcrion Description
     """
@@ -202,7 +202,7 @@ def main(arguments):
                     "The project_path field is Null in JSON Template.")
             else:
                 # Step: Form a new workbook item and publish.
-                wb_id = publish_workbook(server, data)
+                wb_id = publish_wb(server, data)
 
                 if len(data['permissions']) > 0:
                     for permission_data in data['permissions']:
