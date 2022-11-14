@@ -27,12 +27,12 @@
             "ViewUnderlyingData": "Allow",
             "ExportImage": "Allow",
             "Delete": "Allow",
-            "ChangeHierarchy": "Deny",
-            "ChangePermissions": "Deny",
-            "WebAuthoring": "Deny",
-            "ExportXml": "Deny",
-            "RunExplainData": "Deny",
-            "CreateRefreshMetrics": "Deny"
+            "ChangeHierarchy": "Allow",
+            "ChangePermissions": "Allow",
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "RunExplainData": "Allow",
+            "CreateRefreshMetrics": "Allow"
           }
         },
         {
@@ -49,12 +49,12 @@
             "ViewUnderlyingData": "Allow",
             "ExportImage": "Allow",
             "Delete": "Allow",
-            "ChangeHierarchy": "Deny",
-            "ChangePermissions": "Deny",
-            "WebAuthoring": "Deny",
-            "ExportXml": "Deny",
-            "RunExplainData": "Deny",
-            "CreateRefreshMetrics": "Deny"
+            "ChangeHierarchy": "Allow",
+            "ChangePermissions": "Allow",
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "RunExplainData": "Allow",
+            "CreateRefreshMetrics": "Allow"
           }
         },
         {
@@ -71,12 +71,12 @@
             "ViewUnderlyingData": "Allow",
             "ExportImage": "Allow",
             "Delete": "Allow",
-            "ChangeHierarchy": "Deny",
-            "ChangePermissions": "Deny",
-            "WebAuthoring": "Deny",
-            "ExportXml": "Deny",
-            "RunExplainData": "Deny",
-            "CreateRefreshMetrics": "Deny"
+            "ChangeHierarchy": "Allow",
+            "ChangePermissions": "Allow",
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "RunExplainData": "Allow",
+            "CreateRefreshMetrics": "Allow"
           }
         }
       ]
