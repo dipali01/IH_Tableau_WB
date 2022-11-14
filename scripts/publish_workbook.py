@@ -217,10 +217,10 @@ def main(arguments):
                 # Step: Form a new workbook item and publish.
                 publish_workbook(server, data)
 
-                # if len(data['permissions']) > 0:
-                #     # Step: Get the Workbook ID from the Workbook Name
-                #     wb_id = get_workbook_id(server, data)[0]
-                #     print("wb_id ::", wb_id)
+                if len(data['permissions']) > 0:
+                    # Step: Get the Workbook ID from the Workbook Name
+                    wb_id = get_workbook_id(server, data)[0]
+                    print("wb_id ::", wb_id)
 
 
                 # if len(data['permissions']) > 0:
