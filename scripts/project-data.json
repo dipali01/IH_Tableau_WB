@@ -3,12 +3,12 @@
     {
       "server_url": "https://tableau.devinvh.com/",
       "site_name": "Enterprise",
-      "name": "Sales-Dashboard",
+      "name": "Forecast",
       "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
-      "file_path": "Sales-Dashboard.twbx",
-      "project_path": "Technology",
-      "tags": ["sample", "temp"],
-      "hidden_views": ["Growth Rates"],
+      "file_path": "Forecast.twbx",
+      "project_path": "Tech Testing",
+      "tags": [],
+      "hidden_views": [],
       "show_tabs": true,
       "is_site_default": true,
       "permissions": [
@@ -26,56 +26,12 @@
             "ViewUnderlyingData": "Allow",
             "ExportImage": "Allow",
             "Delete": "Allow",
-            "ChangeHierarchy": "Allow",
-            "ChangePermissions": "Allow",
-            "WebAuthoring": "Allow",
-            "ExportXml": "Allow",
-            "RunExplainData": "Allow",
-            "CreateRefreshMetrics": "Allow"
-          }
-        },
-        {
-          "permission_group_name": "",
-          "permission_user_name": "Nirav.Padia",
-          "permission_template": {
-            "Read": "Allow",
-            "Write": "Allow",
-            "Filter": "Allow",
-            "AddComment": "Allow",
-            "ViewComments": "Allow",
-            "ShareView": "Allow",
-            "ExportData": "Allow",
-            "ViewUnderlyingData": "Allow",
-            "ExportImage": "Allow",
-            "Delete": "Allow",
-            "ChangeHierarchy": "Allow",
-            "ChangePermissions": "Allow",
-            "WebAuthoring": "Allow",
-            "ExportXml": "Allow",
-            "RunExplainData": "Allow",
-            "CreateRefreshMetrics": "Allow"
-          }
-        },
-        {
-          "permission_group_name": "",
-          "permission_user_name": "Venkateswarlu.Velisetty",
-          "permission_template": {
-            "Read": "Allow",
-            "Write": "Allow",
-            "Filter": "Allow",
-            "AddComment": "Allow",
-            "ViewComments": "Allow",
-            "ShareView": "Allow",
-            "ExportData": "Allow",
-            "ViewUnderlyingData": "Allow",
-            "ExportImage": "Allow",
-            "Delete": "Allow",
-            "ChangeHierarchy": "Allow",
-            "ChangePermissions": "Allow",
-            "WebAuthoring": "Allow",
-            "ExportXml": "Allow",
-            "RunExplainData": "Allow",
-            "CreateRefreshMetrics": "Allow"
+            "ChangeHierarchy": "Deny",
+            "ChangePermissions": "Deny",
+            "WebAuthoring": "Deny",
+            "ExportXml": "Deny",
+            "RunExplainData": "Deny",
+            "CreateRefreshMetrics": "Deny"
           }
         }
       ]
