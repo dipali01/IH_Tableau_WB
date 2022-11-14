@@ -3,10 +3,10 @@
     {
       "server_url": "https://tableau.devinvh.com/",
       "site_name": "Enterprise",
-      "name": "Book1",
+      "name": "Superstore 20",
       "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
-      "file_path": "Book1.twbx",
-      "project_path": "Technology",
+      "file_path": "Superstore 20.twb",
+      "project_path": "Tech Testing",
       "tags": [],
       "hidden_views": [],
       "is_workbook_new": true,
