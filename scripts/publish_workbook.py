@@ -221,6 +221,8 @@ def main(arguments):
                     # Step: Get the Workbook ID from the Workbook Name
                     wb_id = get_workbook_id(server, data)[0]
                     print("wb_id ::", wb_id)
+                else:
+                    print(f"len of permissions : {len(data['permissions'])}")
 
 
                 # if len(data['permissions']) > 0:
