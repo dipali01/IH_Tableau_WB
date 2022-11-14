@@ -70,7 +70,7 @@
       "hidden_views": [],
       "is_workbook_new": true,
       "show_tabs": true,
-      "is_site_default": true,
+      "is_site_default": false,
       "permissions": [
         {
           "permission_group_name": "All Users",
