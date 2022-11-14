@@ -222,8 +222,9 @@ def main(arguments):
                             is_group = None
 
                             # Step: Get the Workbook ID from the Workbook Name
-                            wb_id = get_workbook_id(server, data)[0]
+                            wb_id = get_workbook_id(server, data)
                             print("wb_id ::", wb_id)
+                            print("Type ::", type(wb_id))
 
                             # Step: Get the User or Group ID of permission assigned
                             if permission_data['permission_group_name'] and not permission_data['permission_user_name']:
