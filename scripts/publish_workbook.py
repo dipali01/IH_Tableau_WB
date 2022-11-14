@@ -70,6 +70,8 @@ def publish_workbook(server, data):
     """
     Funcrion Description
     """
+    print("In publish_workbook")
+
     if data['is_workbook_new']:
         publish_type = "CreateNew"
     else:
@@ -210,6 +212,7 @@ def main(arguments):
             else:
                 # Step: Form a new workbook item and publish.
                 publish_workbook(server, data)
+                print("Out publish_workbook")
 
                 if data['permissions']:
                     for permission_data in data['permissions']:
