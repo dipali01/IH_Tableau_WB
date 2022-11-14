@@ -84,7 +84,9 @@ def publish_workbook(server, data):
         name=data['name'], project_id=project_id, show_tabs=data['show_tabs'])
     new_workbook = server.workbooks.publish(
         new_workbook, wb_path, publish_type, hidden_views=data['hidden_views'] if len(data['hidden_views']) > 0 else None)
+
     print(type(new_workbook))
+    print(new_workbook.items())
 
     print(
         f"\nSuccessfully published {data['file_path']} Workbook in {data['project_path']} project in {data['site_name']} site.")
