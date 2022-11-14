@@ -3,10 +3,10 @@
     {
       "server_url": "https://tableau.devinvh.com/",
       "site_name": "Enterprise",
-      "name": "Superstore 20",
+      "name": "Book1",
       "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
-      "file_path": "Superstore 20.twb",
-      "project_path": "Tech Testing",
+      "file_path": "Book1.twbx",
+      "project_path": "Technology",
       "tags": [],
       "hidden_views": [],
       "is_workbook_new": false,
@@ -34,35 +34,28 @@
             "RunExplainData": "Allow",
             "CreateRefreshMetrics": "Allow"
           }
-        },
+        }
+      ]
+    },
+    {
+      "server_url": "https://tableau.devinvh.com/",
+      "site_name": "Enterprise",
+      "name": "Superstore 20",
+      "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
+      "file_path": "Superstore 20.twb",
+      "project_path": "Technology",
+      "tags": [],
+      "hidden_views": [],
+      "is_workbook_new": false,
+      "show_tabs": true,
+      "is_site_default": true,
+      "permissions": [
         {
-          "permission_group_name": "",
-          "permission_user_name": "Nirav.Padia",
+          "permission_group_name": "All Users",
+          "permission_user_name": "",
           "permission_template": {
             "Read": "Allow",
             "Write": "Allow",
-            "Filter": "Allow",
-            "AddComment": "Allow",
-            "ViewComments": "Allow",
-            "ShareView": "Allow",
-            "ExportData": "Allow",
-            "ViewUnderlyingData": "Allow",
-            "ExportImage": "Allow",
-            "Delete": "Allow",
-            "ChangeHierarchy": "Allow",
-            "ChangePermissions": "Allow",
-            "WebAuthoring": "Allow",
-            "ExportXml": "Allow",
-            "RunExplainData": "Allow",
-            "CreateRefreshMetrics": "Allow"
-          }
-        },
-        {
-          "permission_group_name": "",
-          "permission_user_name": "Venkateswarlu.Velisetty",
-          "permission_template": {
-            "Read": "Deny",
-            "Write": "Deny",
             "Filter": "Allow",
             "AddComment": "Allow",
             "ViewComments": "Allow",
