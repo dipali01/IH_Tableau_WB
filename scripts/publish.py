@@ -11,11 +11,6 @@ def publish_wb(server, data):
     Funcrion Description
     """
 
-    if data['is_workbook_new']:
-        publish_type = "CreateNew"
-    else:
-        publish_type = "Overwrite"
-
     project_id = get_project_id(server, data)
     wb_path = os.path.dirname(os.path.realpath(__file__)).rsplit(
         '/', 1)[0] + "/workbooks/" + data['file_path']
