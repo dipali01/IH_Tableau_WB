@@ -94,8 +94,6 @@ def publish_wb(server, data):
         new_workbook = server.workbooks.update(
             new_workbook)
         print("\nUpdate Workbook Successfully and set Tags.")
-    
-    print(type(new_workbook))
 
     return new_workbook._id
 
