@@ -64,9 +64,11 @@ def delete_permission(data, auth_token, wb_id, permission_user_or_group_id, perm
     Funcrion Description
     """
     if is_group:
-        url = f"https://tableau.devinvh.com/api/{version}/sites/{data['site_id']}/workbooks/{wb_id}/permissions/groups/{permission_user_or_group_id}/{permission_name}/{existing_mode}"
+        group_or_user = "groups"
     else:
-        url = f"https://tableau.devinvh.com/api/{version}/sites/{data['site_id']}/workbooks/{wb_id}/permissions/users/{permission_user_or_group_id}/{permission_name}/{existing_mode}"
+        group_or_user = "users"
+
+    url = f"https://tableau.devinvh.com/api/{version}/sites/{data['site_id']}/workbooks/{wb_id}/permissions/{group_or_user}/{permission_user_or_group_id}/{permission_name}/{existing_mode}"
 
     server_response = requests.delete(
         url, headers={'x-tableau-auth': auth_token},
