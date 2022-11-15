@@ -4,12 +4,9 @@ Neccessory Module imports
 import argparse
 import json
 import logging
-import os
-import xml.etree.ElementTree as ET
-
-import requests
-import tableauserverclient as TSC
-from publish_workbook import *
+from publish import publish_wb
+from helpers import sign_in, get_group_id, get_user_id
+from permissions import query_permission, add_permission, delete_permission
 
 xmlns = {'t': 'http://tableau.com/api'}
 
@@ -24,7 +21,8 @@ def main(arguments):
         for data in project_data_json:
 
             # Step: Sign in to Tableau server.
-            server, auth_token, version = sign_in(data)
+            server, auth_token, version = sign_in(
+                data, arguments.username, arguments.password)
 
             if data['project_path'] is None:
                 raise LookupError(
