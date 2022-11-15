@@ -22,8 +22,7 @@ def publish_wb(server, data):
         if len(data['hidden_views']) > 0 else None)
 
     print(
-        f"\nSuccessfully published {data['file_path']} Workbook in \
-            {data['project_path']} project in {data['site_name']} site.")
+        f"\nSuccessfully published {data['file_path']} Workbook in {data['project_path']} project in {data['site_name']} site.")
 
     # Update Workbook and set tags
     if len(data['tags']) > 0:
