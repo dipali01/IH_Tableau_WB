@@ -34,8 +34,8 @@ def main(arguments):
                 if len(data['permissions']) > 0:
                     for permission_data in data['permissions']:
                         if permission_data['permission_template']:
-                            # print(
-                            #     "---------------------------------------------------------------------------------------------------------------------------------")
+                            print(
+                                "---------------------------------------------------------------------------------------------------------------------------------")
 
                             is_group = None
 
@@ -57,13 +57,11 @@ def main(arguments):
                                 data, wb_id, permission_user_or_group_id, version, auth_token, is_group)
 
                             for permission_name, permission_mode in permission_data['permission_template'].items():
-                                # update_permission_flag = True
                                 if user_permissions is None:
                                     add_permission(
                                         data, wb_id, permission_user_or_group_id, version, auth_token, permission_name, permission_mode, is_group)
                                     print(
                                         f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
-                                    # update_permission_flag = False
                                 else:
                                     for permission in user_permissions:
                                         if permission.get('name') == permission_name:
@@ -72,23 +70,13 @@ def main(arguments):
                                                     'mode')
                                                 delete_permission(
                                                     data, auth_token, wb_id, permission_user_or_group_id, permission_name, existing_mode, version, is_group)
-                                                # update_permission_flag = True
                                                 print(
                                                     f"\tPermission {permission_name} : {existing_mode} is deleted Successfully in {wb_id}\n")
+
                                                 add_permission(
                                                     data, wb_id, permission_user_or_group_id, version, auth_token, permission_name, permission_mode, is_group)
                                                 print(
                                                     f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
-                                            # else:
-                                            #     update_permission_flag = False
-
-                                # if update_permission_flag:
-                                #     add_permission(
-                                #         data, wb_id, permission_user_or_group_id, version, auth_token, permission_name, permission_mode, is_group)
-                                # else:
-                                #     print(
-                                #         f"\tPermission {permission_name} is already set to {permission_mode} on {data['name']}\n")
-
                         else:
                             logging.info(
                                 "Something went wrong, Error occured.\n User Name or List of Permissions in template are null")

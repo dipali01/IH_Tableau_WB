@@ -16,13 +16,13 @@
           "permission_group_name": "All Users",
           "permission_user_name": "",
           "permission_template": {
-            "Read": "Deny",
-            "Write": "Deny",
-            "Filter": "Deny",
-            "AddComment": "Deny",
-            "ViewComments": "Deny",
-            "ShareView": "Deny",
-            "ExportData": "Deny",
+            "Read": "Allow",
+            "Write": "Allow",
+            "Filter": "Allow",
+            "AddComment": "Allow",
+            "ViewComments": "Allow",
+            "ShareView": "Allow",
+            "ExportData": "Allow",
             "ViewUnderlyingData": "Deny",
             "ExportImage": "Deny",
             "Delete": "Deny",
@@ -45,15 +45,15 @@
             "ViewComments": "Deny",
             "ShareView": "Deny",
             "ExportData": "Deny",
-            "ViewUnderlyingData": "Deny",
-            "ExportImage": "Deny",
-            "Delete": "Deny",
-            "ChangeHierarchy": "Deny",
-            "ChangePermissions": "Deny",
-            "WebAuthoring": "Deny",
-            "ExportXml": "Deny",
-            "RunExplainData": "Deny",
-            "CreateRefreshMetrics": "Deny"
+            "ViewUnderlyingData": "Allow",
+            "ExportImage": "Allow",
+            "Delete": "Allow",
+            "ChangeHierarchy": "Allow",
+            "ChangePermissions": "Allow",
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "RunExplainData": "Allow",
+            "CreateRefreshMetrics": "Allow"
           }
         }
       ]
@@ -76,10 +76,10 @@
           "permission_template": {
             "Read": "Deny",
             "Write": "Deny",
-            "Filter": "Deny",
+            "Filter": "Allow",
             "AddComment": "Deny",
             "ViewComments": "Deny",
-            "ShareView": "Deny",
+            "ShareView": "Allow",
             "ExportData": "Deny",
             "ViewUnderlyingData": "Deny",
             "ExportImage": "Deny",
@@ -88,8 +88,8 @@
             "ChangePermissions": "Deny",
             "WebAuthoring": "Deny",
             "ExportXml": "Deny",
-            "RunExplainData": "Deny",
-            "CreateRefreshMetrics": "Deny"
+            "RunExplainData": "Allow",
+            "CreateRefreshMetrics": "Allow"
           }
         },
         {
