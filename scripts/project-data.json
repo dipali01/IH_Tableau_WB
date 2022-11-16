@@ -57,8 +57,8 @@
           }
         },
         {
-          "permission_group_name": "anubhuti.agrawal",
-          "permission_user_name": "",
+          "permission_group_name": "",
+          "permission_user_name": "anubhuti.agrawal",
           "permission_template": {
             "Read": "Allow",
             "Filter": "Allow",
