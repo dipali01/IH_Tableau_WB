@@ -8,18 +8,14 @@ from publish import publish_wb
 from helpers import sign_in, get_group_id, get_user_id
 from permissions import query_permission, add_permission, delete_permission
 
-xmlns = {'t': 'http://tableau.com/api'}
-
 
 def main(arguments):
     """
     Funcrion Description
     """
     project_data_json = json.loads(arguments.project_data)
-
     try:
         for data in project_data_json:
-
             # Step: Sign in to Tableau server.
             server, auth_token, version = sign_in(
                 data, arguments.username, arguments.password)
@@ -34,9 +30,6 @@ def main(arguments):
                 if len(data['permissions']) > 0:
                     for permission_data in data['permissions']:
                         if permission_data['permission_template']:
-                            print(
-                                "---------------------------------------------------------------")
-
                             is_group = None
 
                             # Step: Get the User or Group ID of permission assigned
