@@ -27,8 +27,8 @@ def main(arguments):
                 f"\nThere are {pagination_item.total_available} datasources on site: ")
             print([datasource.name for datasource in all_datasources])
             for datasource in all_datasources:
-                print(type(datasource))
-                print(datasource)
+                # print(type(datasource))
+                print(datasource.__dict__)
 
             # if data['project_path'] is None:
             #     raise LookupError(
