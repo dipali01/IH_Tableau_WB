@@ -23,6 +23,7 @@ def main(arguments):
             ds_id = get_ds_id(server, data['ds_name'])
 
             print("ds_id ::", ds_id)
+            
             dl_ds(server, ds_id[0])
 
             # publish_ds(server, data)
