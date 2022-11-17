@@ -98,5 +98,6 @@ def dl_ds(server, ds_id):
     """
     ds_path = os.path.dirname(os.path.realpath(__file__)).rsplit(
         '/', 1)[0] + "/datasource/"
-    file_path = server.datasources.download(ds_id, ds_path)
+    print(ds_path)
+    file_path = server.datasources.download(ds_id)
     print(f"\nDownloaded the file to {file_path}.")
