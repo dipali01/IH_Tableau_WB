@@ -79,3 +79,21 @@ def get_user_id(server, permission_user_name):
     user_id_list = [
         user.id for user in all_users if user.name == permission_user_name]
     return user_id_list
+
+
+def get_ds_id(server, ds_name):
+    """
+    Funcrion Description
+    """
+    all_datasources, pagination_item = server.datasources.get()
+    ds_id_list = [
+        datasource.id for datasource in all_datasources if datasource.name == ds_name]
+    return ds_id_list
+
+
+def dl_ds(server, ds_id):
+    """
+    Funcrion Description
+    """
+    file_path = server.datasources.download(ds_id)
+    print(f"\nDownloaded the file to {file_path}.")

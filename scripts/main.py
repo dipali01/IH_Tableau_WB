@@ -5,7 +5,7 @@ import argparse
 import json
 import logging
 from publish import publish_wb, publish_ds
-from helpers import sign_in, get_group_id, get_user_id
+from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds
 from permissions import query_permission, add_permission, delete_permission
 
 
@@ -20,7 +20,11 @@ def main(arguments):
             server, auth_token, version = sign_in(
                 data, arguments.username, arguments.password)
 
-            publish_ds(server, data)
+            ds_id = get_ds_id(server, data['ds_name'])
+
+            dl_ds(server, ds_id)
+            
+            # publish_ds(server, data)
 
             # if data['project_path'] is None:
             #     raise LookupError(

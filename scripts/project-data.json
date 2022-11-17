@@ -10,7 +10,8 @@
       "tags": [],
       "hidden_views": [],
       "show_tabs": true,
-      "is_site_default": true
+      "is_site_default": true,
+      "ds_name": "Sample - Superstore"
     }
   ]
 }
