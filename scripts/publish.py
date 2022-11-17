@@ -47,4 +47,4 @@ def publish_ds(server, data):
 
     # publish data source (specified in file_path)
     new_datasource = server.datasources.publish(
-        new_datasource, file_path, 'CreateNew')
+        new_datasource, file_path, 'Overwrite')
