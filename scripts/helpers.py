@@ -81,26 +81,13 @@ def get_user_id(server, permission_user_name):
     return user_id_list
 
 
-def get_ds_id(server, ds_name):
+def get_ds_id(server, ds_name, project_path):
     """
     Funcrion Description
     """
     all_datasources, pagination_item = server.datasources.get()
     ds_id_list = [
-        datasource.id for datasource in all_datasources if datasource.name == ds_name]
-
-    # print(type(datasource)
-    #       for datasource in all_datasources if datasource.name == ds_name)
-
-    for datasource in all_datasources:
-        print(datasource.__dict__)
-        # if datasource.name == ds_name:
-        #     new_list = list(
-        #         item for item in datasource
-        #         if item > 0
-        #     )
-        #     print(new_list)
-
+        datasource.id for datasource in all_datasources if datasource.name == ds_name and datasource._project_name == project_path]
     return ds_id_list
 
 
