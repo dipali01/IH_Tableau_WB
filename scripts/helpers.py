@@ -88,7 +88,7 @@ def get_ds_id(server, ds_name):
     all_datasources, pagination_item = server.datasources.get()
     ds_id_list = [
         datasource.id for datasource in all_datasources if datasource.name == ds_name]
-    print( datasource.__dict__ for datasource in all_datasources if datasource.name == ds_name)
+    print( type(datasource) for datasource in all_datasources if datasource.name == ds_name)
     return ds_id_list
 
 
