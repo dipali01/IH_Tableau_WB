@@ -20,8 +20,10 @@ def main(arguments):
             server, auth_token, version = sign_in(
                 data, arguments.username, arguments.password)
 
+            # Get datasource id from the name and project name
             ds_id = get_ds_id(server, data['ds_name'], data['project_path'])[0]
 
+            # Download datasource
             dl_ds(server, ds_id)
 
             # publish_ds(server, data)
