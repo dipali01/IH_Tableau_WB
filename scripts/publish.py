@@ -10,7 +10,6 @@ def publish_wb(server, data):
     """
     Funcrion Description
     """
-
     project_id = get_project_id(server, data)
     wb_path = os.path.dirname(os.path.realpath(__file__)).rsplit(
         '/', 1)[0] + "/workbooks/" + data['file_path']
