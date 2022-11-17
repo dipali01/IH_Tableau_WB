@@ -1,7 +1,6 @@
 """
 Neccessory Module imports
 """
-import os
 import xml.etree.ElementTree as ET
 import tableauserverclient as TSC
 xmlns = {'t': 'http://tableau.com/api'}
@@ -96,8 +95,5 @@ def dl_ds(server, ds_id):
     """
     Funcrion Description
     """
-    ds_path = os.path.dirname(os.path.realpath(__file__)).rsplit(
-        '/', 1)[0] + "/datasource/"
-    print(ds_path)
     file_path = server.datasources.download(ds_id)
     print(f"\nDownloaded the file to {file_path}.")
