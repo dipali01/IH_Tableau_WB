@@ -22,13 +22,9 @@ def main(arguments):
             server, auth_token, version = sign_in(
                 data, arguments.username, arguments.password)
 
-            all_datasources, pagination_item = server.datasources.get()
-            print(
-                f"\nThere are {pagination_item.total_available} datasources on site: ")
-            print([datasource.name for datasource in all_datasources])
-            for datasource in all_datasources:
-                # print(type(datasource))
-                print(datasource.__dict__)
+            all_workbooks_items, pagination_item = server.workbooks.get()
+            # print names of first 100 workbooks
+            print([workbook.__dict__ for workbook in all_workbooks_items])
 
             # if data['project_path'] is None:
             #     raise LookupError(
