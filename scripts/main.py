@@ -20,7 +20,7 @@ def main(arguments):
             server, auth_token, version = sign_in(
                 data, arguments.username, arguments.password)
 
-            ds_id = get_ds_id(server, data['ds_name'])
+            ds_id = get_ds_id(server, data['ds_name'], data['project_path'])
 
             print("ds_id ::", ds_id)
 
