@@ -22,7 +22,8 @@ def main(arguments):
 
             ds_id = get_ds_id(server, data['ds_name'])
 
-            dl_ds(server, ds_id)
+            print("ds_id ::", ds_id)
+            # dl_ds(server, ds_id)
             
             # publish_ds(server, data)
 
