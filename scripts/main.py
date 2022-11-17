@@ -24,7 +24,9 @@ def main(arguments):
 
             all_workbooks_items, pagination_item = server.workbooks.get()
             # print names of first 100 workbooks
-            print([workbook.__dict__ for workbook in all_workbooks_items])
+            for workbook in all_workbooks_items:
+                print("\n",workbook.__dict__)
+            # print([workbook.__dict__ for workbook in all_workbooks_items])
 
             # if data['project_path'] is None:
             #     raise LookupError(
