@@ -11,7 +11,7 @@
       "hidden_views": [],
       "show_tabs": true,
       "is_site_default": true,
-      "ds_name": "Sample - Superstore",
+      "ds_name": "",
       "permissions": [
         {
           "permission_group_name": "All Users",
@@ -92,7 +92,7 @@
       "hidden_views": [],
       "show_tabs": true,
       "is_site_default": true,
-      "ds_name": "Sample - Superstore",
+      "ds_name": "",
       "permissions": [
         {
           "permission_group_name": "All Users",
@@ -173,7 +173,7 @@
       "hidden_views": [],
       "show_tabs": true,
       "is_site_default": true,
-      "ds_name": "Sample - Superstore",
+      "ds_name": "",
       "permissions": [
         {
           "permission_group_name": "All Users",
@@ -254,7 +254,7 @@
       "hidden_views": [],
       "show_tabs": true,
       "is_site_default": true,
-      "ds_name": "Sample - Superstore",
+      "ds_name": "",
       "permissions": [
         {
           "permission_group_name": "All Users",

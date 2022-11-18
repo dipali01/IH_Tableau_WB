@@ -18,7 +18,7 @@ def temp_func(data, username, password):
     # Step: Sign in to Tableau server.
     server, auth_token, version = sign_in(
         data, username, password)
-
+    print("----------------------------------------------------")
     if data['ds_name']:
         # Get datasource id from the name and project name
         ds_id = get_ds_id(server, data['ds_name'], data['project_path'])[0]
