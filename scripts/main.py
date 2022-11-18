@@ -21,13 +21,13 @@ def main(arguments):
                 data, arguments.username, arguments.password)
 
             # Get datasource id from the name and project name
-            ds_id = get_ds_id(server, data['ds_name'], data['project_path'])[0]
+            # ds_id = get_ds_id(server, data['ds_name'], data['project_path'])[0]
 
-            # Download datasource
-            dl_ds(server, ds_id)
+            # # Download datasource
+            # dl_ds(server, ds_id)
 
-            # Publish Datasource
-            publish_ds(server, data)
+            # # Publish Datasource
+            # publish_ds(server, data)
 
             if data['project_path'] is None:
                 raise LookupError(
