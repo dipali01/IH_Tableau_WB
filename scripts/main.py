@@ -19,7 +19,10 @@ def temp_func(data, username, password):
     server, auth_token, version = sign_in(
         data, username, password)
     print("----------------------------------------------------")
-    if data['datasource']:
+
+    if data['datasource'] and data['datasource']['ds_name'] \
+            and data['datasource']['get_ds_project_name'] \
+            and data['datasource']['publish_ds_project_name']:
         # Get datasource id from the name and project name
         ds_id = get_ds_id(server, data['datasource'])[0]
 
