@@ -4,8 +4,8 @@ Neccessory Module imports
 import argparse
 import json
 import logging
-from publish import publish_wb
-from helpers import sign_in, get_group_id, get_user_id
+from publish import publish_wb, publish_ds
+from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds
 from permissions import query_permission, add_permission, delete_permission
 
 
@@ -19,6 +19,15 @@ def main(arguments):
             # Step: Sign in to Tableau server.
             server, auth_token, version = sign_in(
                 data, arguments.username, arguments.password)
+
+            # Get datasource id from the name and project name
+            ds_id = get_ds_id(server, data['ds_name'], data['project_path'])[0]
+
+            # Download datasource
+            dl_ds_file_path = dl_ds(server, ds_id)
+
+            # Publish Datasource
+            publish_ds(server, data, dl_ds_file_path)
 
             if data['project_path'] is None:
                 raise LookupError(
@@ -62,23 +71,24 @@ def main(arguments):
                                         f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
                                 else:
                                     for permission in user_permissions:
-                                        if permission.get('name') == permission_name:
-                                            if permission.get('mode') != permission_mode:
-                                                existing_mode = permission.get(
-                                                    'mode')
-                                                delete_permission(
-                                                    data, auth_token, wb_id,
-                                                    permission_user_or_group_id, permission_name,
-                                                    existing_mode, version, is_group)
-                                                print(
-                                                    f"\tPermission {permission_name} : {existing_mode} is deleted Successfully in {wb_id}\n")
+                                        if permission.get('name') == permission_name and \
+                                                permission.get('mode') != permission_mode:
+                                            existing_mode = permission.get(
+                                                'mode')
 
-                                                add_permission(
-                                                    data, wb_id, permission_user_or_group_id,
-                                                    version, auth_token, permission_name,
-                                                    permission_mode, is_group)
-                                                print(
-                                                    f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
+                                            delete_permission(
+                                                data, auth_token, wb_id,
+                                                permission_user_or_group_id, permission_name,
+                                                existing_mode, version, is_group)
+                                            print(
+                                                f"\tPermission {permission_name} : {existing_mode} is deleted Successfully in {wb_id}\n")
+
+                                            add_permission(
+                                                data, wb_id, permission_user_or_group_id,
+                                                version, auth_token, permission_name,
+                                                permission_mode, is_group)
+                                            print(
+                                                f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
                         else:
                             logging.info(
                                 "Something went wrong, Error occured.\n User Name or List of Permissions in template are null")
