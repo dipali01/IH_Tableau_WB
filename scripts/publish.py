@@ -33,13 +33,10 @@ def publish_wb(server, data):
     return new_workbook._id
 
 
-def publish_ds(server, data):
+def publish_ds(server, data, dl_ds_file_path):
     """
     Funcrion Description
     """
-    file_path = os.path.dirname(os.path.realpath(__file__)).rsplit(
-        '/', 1)[0] + "/workbooks/" + data['file_path']
-
     project_id = get_project_id(server, data)
 
     # Use the project id to create new datsource_item
@@ -47,4 +44,4 @@ def publish_ds(server, data):
 
     # publish data source (specified in file_path)
     new_datasource = server.datasources.publish(
-        new_datasource, file_path, 'Overwrite')
+        new_datasource, dl_ds_file_path, 'Overwrite')

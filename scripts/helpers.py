@@ -97,3 +97,4 @@ def dl_ds(server, ds_id):
     """
     file_path = server.datasources.download(ds_id)
     print(f"\nDownloaded the file to {file_path}.")
+    return file_path

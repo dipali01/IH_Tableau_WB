@@ -21,13 +21,13 @@ def main(arguments):
                 data, arguments.username, arguments.password)
 
             # Get datasource id from the name and project name
-            # ds_id = get_ds_id(server, data['ds_name'], data['project_path'])[0]
+            ds_id = get_ds_id(server, data['ds_name'], data['project_path'])[0]
 
-            # # Download datasource
-            # dl_ds(server, ds_id)
+            # Download datasource
+            dl_ds_file_path = dl_ds(server, ds_id)
 
-            # # Publish Datasource
-            # publish_ds(server, data)
+            # Publish Datasource
+            publish_ds(server, data, dl_ds_file_path)
 
             if data['project_path'] is None:
                 raise LookupError(
@@ -71,9 +71,11 @@ def main(arguments):
                                         f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
                                 else:
                                     for permission in user_permissions:
-                                        if permission.get('name') == permission_name and permission.get('mode') != permission_mode:
+                                        if permission.get('name') == permission_name and \
+                                                permission.get('mode') != permission_mode:
                                             existing_mode = permission.get(
                                                 'mode')
+
                                             delete_permission(
                                                 data, auth_token, wb_id,
                                                 permission_user_or_group_id, permission_name,
