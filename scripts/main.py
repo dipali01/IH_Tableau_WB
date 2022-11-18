@@ -22,7 +22,8 @@ def main(arguments):
 
             if data['ds_name']:
                 # Get datasource id from the name and project name
-                ds_id = get_ds_id(server, data['ds_name'], data['project_path'])[0]
+                ds_id = get_ds_id(
+                    server, data['ds_name'], data['project_path'])[0]
 
                 # Download datasource
                 dl_ds_file_path = dl_ds(server, ds_id)
