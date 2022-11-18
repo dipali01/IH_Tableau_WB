@@ -3,7 +3,517 @@
     {
       "server_url": "https://tableau.devinvh.com/",
       "site_name": "Enterprise",
-      "name": "Superstore 20",
+      "name": "Book1",
+      "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
+      "file_path": "Book1.twbx",
+      "project_path": "Tech Testing",
+      "tags": [],
+      "hidden_views": [],
+      "show_tabs": true,
+      "is_site_default": true,
+      "datasource": {
+        "ds_name": "Sample - Superstore",
+        "get_ds_project_name": "Tech Testing",
+        "publish_ds_project_name": "Technology"
+      },
+      "permissions": [
+        {
+          "permission_group_name": "All Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "Test Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "",
+          "permission_user_name": "anubhuti.agrawal",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        }
+      ]
+    },
+    {
+      "server_url": "https://tableau.devinvh.com/",
+      "site_name": "Enterprise",
+      "name": "Forecast 2022.1",
+      "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
+      "file_path": "Forecast 2022.1.twbx",
+      "project_path": "Tech Testing",
+      "tags": [],
+      "hidden_views": [],
+      "show_tabs": true,
+      "is_site_default": true,
+      "datasource": {
+        "ds_name": "",
+        "get_ds_project_name": "",
+        "publish_ds_project_name": ""
+      },
+      "permissions": [
+        {
+          "permission_group_name": "All Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "Test Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "",
+          "permission_user_name": "anubhuti.agrawal",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        }
+      ]
+    },
+    {
+      "server_url": "https://tableau.devinvh.com/",
+      "site_name": "Enterprise",
+      "name": "Forecast 2022.2",
+      "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
+      "file_path": "Forecast 2022.2.twbx",
+      "project_path": "Tech Testing",
+      "tags": [],
+      "hidden_views": [],
+      "show_tabs": true,
+      "is_site_default": true,
+      "datasource": {
+        "ds_name": "",
+        "get_ds_project_name": "",
+        "publish_ds_project_name": ""
+      },
+      "permissions": [
+        {
+          "permission_group_name": "All Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "Test Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "",
+          "permission_user_name": "anubhuti.agrawal",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        }
+      ]
+    },
+    {
+      "server_url": "https://tableau.devinvh.com/",
+      "site_name": "Enterprise",
+      "name": "Sample - Superstore",
+      "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
+      "file_path": "Sales-Dashboard.twbx",
+      "project_path": "Tech Testing",
+      "tags": [],
+      "hidden_views": [],
+      "show_tabs": true,
+      "is_site_default": true,
+      "datasource": {
+        "ds_name": "",
+        "get_ds_project_name": "",
+        "publish_ds_project_name": ""
+      },
+      "permissions": [
+        {
+          "permission_group_name": "All Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "Test Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "",
+          "permission_user_name": "anubhuti.agrawal",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        }
+      ]
+    },
+    {
+      "server_url": "https://tableau.devinvh.com/",
+      "site_name": "Enterprise",
+      "name": "Sample",
+      "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
+      "file_path": "Sample.twb",
+      "project_path": "Tech Testing",
+      "tags": [],
+      "hidden_views": [],
+      "show_tabs": true,
+      "is_site_default": true,
+      "datasource": {
+        "ds_name": "",
+        "get_ds_project_name": "",
+        "publish_ds_project_name": ""
+      },
+      "permissions": [
+        {
+          "permission_group_name": "All Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "Test Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "",
+          "permission_user_name": "anubhuti.agrawal",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        }
+      ]
+    },
+    {
+      "server_url": "https://tableau.devinvh.com/",
+      "site_name": "Enterprise",
+      "name": "Superstore _Profitability_Overview",
+      "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
+      "file_path": "Superstore _Profitability_Overview.twb",
+      "project_path": "Tech Testing",
+      "tags": [],
+      "hidden_views": [],
+      "show_tabs": true,
+      "is_site_default": true,
+      "datasource": {
+        "ds_name": "",
+        "get_ds_project_name": "",
+        "publish_ds_project_name": ""
+      },
+      "permissions": [
+        {
+          "permission_group_name": "All Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "Test Users",
+          "permission_user_name": "",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        },
+        {
+          "permission_group_name": "",
+          "permission_user_name": "anubhuti.agrawal",
+          "permission_template": {
+            "Read": "Allow",
+            "Filter": "Allow",
+            "ViewComments": "Allow",
+            "AddComment": "Allow",
+            "ExportImage": "Allow",
+            "ExportData": "Allow",
+            "RunExplainData": "Allow",
+            "ShareView": "Allow",
+            "ViewUnderlyingData": "Allow",                    
+            "WebAuthoring": "Allow",
+            "ExportXml": "Allow",
+            "Write": "Allow",
+            "CreateRefreshMetrics": "Allow",
+            "ChangeHierarchy": "Allow",
+            "Delete": "Allow",
+            "ChangePermissions": "Allow"
+          }
+        }
+      ]
+    },
+    {
+      "server_url": "https://tableau.devinvh.com/",
+      "site_name": "Enterprise",
+      "name": "Sample - Superstore",
       "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
       "file_path": "Superstore 20.twb",
       "project_path": "Tech Testing",
@@ -11,7 +521,11 @@
       "hidden_views": [],
       "show_tabs": true,
       "is_site_default": true,
-      "ds_name": "Sample - Superstore",
+      "datasource": {
+        "ds_name": "",
+        "get_ds_project_name": "",
+        "publish_ds_project_name": ""
+      },
       "permissions": [
         {
           "permission_group_name": "All Users",
