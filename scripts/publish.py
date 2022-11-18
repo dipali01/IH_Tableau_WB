@@ -10,7 +10,7 @@ def publish_wb(server, data):
     """
     Funcrion Description
     """
-    project_id = get_project_id(server, data)
+    project_id = get_project_id(server, data['project_path'], data['file_path'])
     wb_path = os.path.dirname(os.path.realpath(__file__)).rsplit(
         '/', 1)[0] + "/workbooks/" + data['file_path']
 
@@ -37,7 +37,7 @@ def publish_ds(server, data, dl_ds_file_path):
     """
     Funcrion Description
     """
-    project_id = get_project_id(server, data)
+    project_id = get_project_id(server, data['get_ds_project_name'], data['ds_name'])
 
     # Use the project id to create new datsource_item
     new_datasource = TSC.DatasourceItem(project_id)
