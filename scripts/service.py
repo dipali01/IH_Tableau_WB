@@ -3,7 +3,7 @@ Neccessory Module imports
 """
 import logging
 from publish import publish_wb, publish_ds
-from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds
+from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh
 from permissions import query_permission, add_permission, delete_permission
 
 
@@ -12,27 +12,10 @@ def temp_func(data, username, password):
     Funcrion Description
     """
     try:
-        # Step: Sign in to Tableau server.
-        server, auth_token, version = sign_in(
-            data, username, password)
-        print("----------------------------------------------------")
+        if data['project_path']:
+            server, auth_token, version = sign_in(
+                username, password, data['server_url'], data['site_name'], data['is_site_default'])
 
-        if data['datasource'] and data['datasource']['ds_name'] \
-                and data['datasource']['get_ds_project_name'] \
-                and data['datasource']['publish_ds_project_name']:
-            # Get datasource id from the name and project name
-            ds_id = get_ds_id(server, data['datasource'])[0]
-
-            # Download datasource
-            dl_ds_file_path = dl_ds(server, ds_id)
-
-            # Publish Datasource
-            publish_ds(server, data, dl_ds_file_path)
-
-        if data['project_path'] is None:
-            raise LookupError(
-                "The project_path field is Null in JSON Template.")
-        else:
             # Step: Form a new workbook item and publish.
             wb_id = publish_wb(server, data)
 
@@ -96,8 +79,46 @@ def temp_func(data, username, password):
                 logging.info(
                     "Something went wrong, Error occured.\n Permissions in template are null")
 
-        # Step: Sign Out to the Tableau Server
-        server.auth.sign_out()
+            # Step: Sign Out to the Tableau Server
+            server.auth.sign_out()
+        else:
+            raise LookupError(
+                "The project_path field is Null in JSON Template.")
+
+        if data['datasource'] and data['datasource']['ds_name'] \
+                and data['datasource']['get_ds_project_name'] \
+                and data['datasource']['publish_ds_project_name']:
+
+            # Step: Sign In to the Tableau Server
+            server, auth_token, version = sign_in(
+                username, password, data['datasource']['get_ds_server_url'], '', True)
+
+            # Get datasource id from the name and project name
+            ds_id = get_ds_id(
+                server, data['datasource']['ds_name'], data['datasource']['ds_project_name'])[0]
+
+            # Download datasource
+            dl_ds_file_path = dl_ds(server, ds_id)
+
+            # Step: Sign Out to the Tableau Server
+            server.auth.sign_out()
+
+            # Step: Sign In to the Tableau Server
+            server, auth_token, version = sign_in(
+                username, password, data['datasource']['publish_ds_server_url'], '', True)
+
+            # Publish Datasource
+            publish_ds(server, data, dl_ds_file_path)
+
+            # Refresh Datasource
+            ds_refresh(server, data['datasource']['ds_name'],
+                       data['datasource']['publish_ds_project_name'])
+
+            # Step: Sign Out to the Tableau Server
+            server.auth.sign_out()
+        else:
+            raise LookupError(
+                "The datasource field having Null values in JSON Template.")
 
     except Exception as tableu_exception:
         logging.error(
