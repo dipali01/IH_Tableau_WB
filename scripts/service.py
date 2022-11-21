@@ -110,7 +110,7 @@ def temp_func(data, username, password):
             if data['datasource']['is_ds_refresh']:
                 # Refresh Datasource
                 ds_refresh(server, data['datasource']['ds_name'],
-                        data['datasource']['publish_ds_project_name'])
+                           data['datasource']['publish_ds_project_name'])
 
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
