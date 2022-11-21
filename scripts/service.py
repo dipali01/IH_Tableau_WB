@@ -13,6 +13,8 @@ def temp_func(data, username, password):
     """
     server, auth_token, version = sign_in(
         username, password, data['server_url'], data['site_name'], data['is_site_default'])
+
+    # Publish Workbook Part
     try:
         # Step: Form a new workbook item and publish.
         if data['is_wb_publish']:
@@ -21,6 +23,7 @@ def temp_func(data, username, password):
         logging.error(
             "Something went wrong in publish workbook.\n %s", tableu_exception)
 
+    # Permissions Part
     try:
         if data['is_wb_permissions_update']:
             for permission_data in data['permissions']:
@@ -78,6 +81,7 @@ def temp_func(data, username, password):
     # Step: Sign Out to the Tableau Server
     server.auth.sign_out()
 
+    # Datasource Part
     try:
         if data['is_datasource_update']:
             # Step: Sign In to the Tableau Server
@@ -103,11 +107,10 @@ def temp_func(data, username, password):
 
             # Refresh Datasource
             ds_refresh(server, data['datasource']['ds_name'],
-                        data['datasource']['publish_ds_project_name'])
+                       data['datasource']['publish_ds_project_name'])
 
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in datasource update.\n %s", tableu_exception)
-        exit(1)
