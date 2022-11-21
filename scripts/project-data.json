@@ -3,18 +3,18 @@
     {
       "server_url": "https://tableau.devinvh.com/",
       "site_name": "Enterprise",
-      "name": "Book1",
+      "name": "",
       "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
       "file_path": "",
-      "project_path": "Tech Testing",
+      "project_path": "Technology",
       "tags": [],
       "hidden_views": [],
       "show_tabs": true,
       "is_site_default": true,
       "datasource": {
         "ds_name": "Sample - Superstore",
-        "get_ds_project_name": "Tech Testing",
-        "publish_ds_project_name": "Technology",
+        "get_ds_project_name": "Technology",
+        "publish_ds_project_name": "Default",
         "get_ds_server_url": "https://tableau.devinvh.com/",
         "publish_ds_server_url": "https://tableau.devinvh.com/",
         "is_ds_refresh": true
