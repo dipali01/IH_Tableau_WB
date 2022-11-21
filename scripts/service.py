@@ -95,7 +95,7 @@ def temp_func(data, username, password):
 
             # Get datasource id from the name and project name
             ds_id = get_ds_id(
-                server, data['datasource']['ds_name'], data['datasource']['ds_project_name'])[0]
+                server, data['datasource']['ds_name'], data['datasource']['get_ds_project_name'])[0]
 
             # Download datasource
             dl_ds_file_path = dl_ds(server, ds_id)
