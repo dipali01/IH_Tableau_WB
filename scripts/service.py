@@ -89,25 +89,24 @@ def temp_func(data, username, password):
             # Step: Sign In to the Tableau Server
             server, auth_token, version = sign_in(
                 username, password, data['datasource']['get_ds_server_url'], '', True)
-            print(1)
+            
             # Get datasource id from the name and project name
             ds_id = get_ds_id(
                 server, data['datasource']['ds_name'], data['datasource']['get_ds_project_name'])
-            print(2)
+            
             # Download datasource
             dl_ds_file_path = dl_ds(server, ds_id[0])
-            print(dl_ds_file_path)
-            print(3)
+            
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
-            print(4)
+            
             # Step: Sign In to the Tableau Server
             server, auth_token, version = sign_in(
                 username, password, data['datasource']['publish_ds_server_url'], '', True)
-            print(5)
+            
             # Publish Datasource
             publish_ds(server, data, dl_ds_file_path)
-            print(6)
+            
             # if data['datasource']['is_ds_refresh']:
             #     # Refresh Datasource
             #     ds_refresh(server, data['datasource']['ds_name'],
