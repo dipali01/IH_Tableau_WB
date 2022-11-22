@@ -30,7 +30,7 @@
           "is_site_default": false
         }
       },
-      "is_wb_permissions_update": true,
+      "is_wb_permissions_update": false,
       "permissions": [
         {
           "permission_group_name": "",

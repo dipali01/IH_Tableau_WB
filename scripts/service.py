@@ -15,7 +15,7 @@ def temp_func(data, username, password, prod_username, prod_password):
     server, auth_token, version = sign_in(
         username if data['server_name'] == "dev" else prod_username,
         password if data['server_name'] == "dev" else prod_password,
-        data['dev_server_url'] if data['datasource']['publish_ds_server_name'] == "dev" else data['prod_server_url'],
+        data['dev_server_url'] if data['server_name'] == "dev" else data['prod_server_url'],
         data['site_name'],
         data['is_site_default']
     )
