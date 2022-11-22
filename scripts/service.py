@@ -117,19 +117,22 @@ def temp_func(data, username, password, prod_username, prod_password):
             # # Step: Sign Out to the Tableau Server
             # server.auth.sign_out()
 
-            # Step: Sign In to the Tableau Server
-            if data['datasource']['publish_ds_data']['publish_ds_server_name'] == "dev":
-                uname, pname, surl = username, password, data['dev_server_url']
-            elif data['datasource']['publish_ds_data']['publish_ds_server_name'] == "prod":
-                uname, pname, surl = prod_username, prod_password, data['prod_server_url']
+            # # Step: Sign In to the Tableau Server
+            # if data['datasource']['publish_ds_data']['publish_ds_server_name'] == "dev":
+            #     uname, pname, surl = username, password, data['dev_server_url']
+            # elif data['datasource']['publish_ds_data']['publish_ds_server_name'] == "prod":
+            #     uname, pname, surl = prod_username, prod_password, data['prod_server_url']
 
-            print(surl)
+            # print(surl)
+            # server, auth_token, version = sign_in(
+            #     uname, pname, surl,
+            #     data['datasource']['publish_ds_data']['publish_ds_site_name'],
+            #     data['datasource']['publish_ds_data']['is_site_default']
+            # )
+
             server, auth_token, version = sign_in(
-                uname, pname, surl,
-                data['datasource']['publish_ds_data']['publish_ds_site_name'],
-                data['datasource']['publish_ds_data']['is_site_default']
+                username, password, surl, data['dev_server_url'], False
             )
-
             # # Publish Datasource
             # ds_id = publish_ds(server, data, dl_ds_file_path)
 
