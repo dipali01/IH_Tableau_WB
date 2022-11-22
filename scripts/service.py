@@ -15,7 +15,10 @@ def temp_func(data, username, password, prod_username, prod_password):
     server, auth_token, version = sign_in(
         username if data['server_name'] == "dev" else prod_username,
         password if data['server_name'] == "dev" else prod_password,
-        data['server_url'], data['site_name'], data['is_site_default'])
+        data['dev_server_url'] if data['datasource']['publish_ds_server_name'] == "dev" else data['prod_server_url'],
+        data['site_name'],
+        data['is_site_default']
+    )
 
     # Publish Workbook Part
     try:
@@ -89,7 +92,12 @@ def temp_func(data, username, password, prod_username, prod_password):
         if data['is_datasource_update']:
             # Step: Sign In to the Tableau Server
             server, auth_token, version = sign_in(
-                username, password, data['datasource']['get_ds_server_url'], '', True)
+                username if data['datasource']['get_ds_data']['get_ds_server_name'] == "dev" else prod_username,
+                password if data['datasource']['get_ds_data']['get_ds_server_name'] == "dev" else prod_password,
+                data['dev_server_url'] if data['datasource']['get_ds_data']['get_ds_server_name'] == "dev" else data['prod_server_url'],
+                '' if data['datasource']['get_ds_data']['is_site_default'] else data['datasource']['get_ds_data']['get_ds_site_name'],
+                data['datasource']['get_ds_data']['is_site_default']
+            )
 
             # Get datasource id from the name and project name
             ds_id = get_ds_id(
@@ -103,8 +111,12 @@ def temp_func(data, username, password, prod_username, prod_password):
 
             # Step: Sign In to the Tableau Server
             server, auth_token, version = sign_in(
-                prod_username, prod_password, data['datasource']['publish_ds_server_url'],
-                data['datasource']['publish_ds_site_name'], data['datasource']['is_site_default'])
+                username if data['datasource']['publish_ds_data']['publish_ds_server_name'] == "dev" else prod_username,
+                password if data['datasource']['publish_ds_data']['publish_ds_server_name'] == "dev" else prod_password,
+                data['dev_server_url'] if data['datasource']['publish_ds_data']['publish_ds_server_name'] == "dev" else data['prod_server_url'],
+                '' if data['datasource']['publish_ds_data']['is_site_default'] else data['datasource']['publish_ds_data']['publish_ds_site_name'],
+                data['datasource']['publish_ds_data']['is_site_default']
+            )
 
             # Publish Datasource
             ds_id = publish_ds(server, data, dl_ds_file_path)
