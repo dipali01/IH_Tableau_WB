@@ -131,7 +131,7 @@ def temp_func(data, username, password, prod_username, prod_password):
             # )
 
             server, auth_token, version = sign_in(
-                username, password, "https://tableau.devinvh.com/", "DataLabs", False
+                username, password, "https://tableau.devinvh.com/", "Enterprise", ""
             )
             # # Publish Datasource
             # ds_id = publish_ds(server, data, dl_ds_file_path)
