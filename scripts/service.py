@@ -129,7 +129,7 @@ def temp_func(data, username, password, prod_username, prod_password):
             #     data['datasource']['publish_ds_data']['is_site_default']
             # )
             
-            sign_in("Nirav.Padia", 'Password1', "https://tableau.devinvh.com/", "DataLabs", False)
+            sign_in("Nirav.Padia", 'Password1', "https://tableau.devinvh.com/", "DataLab", False)
             # # Publish Datasource
             # ds_id = publish_ds(server, data, dl_ds_file_path)
 
