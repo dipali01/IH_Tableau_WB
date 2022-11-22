@@ -51,6 +51,6 @@ def publish_ds(server, data, dl_ds_file_path):
         new_datasource, dl_ds_file_path, 'Overwrite')
 
     print(
-        f"\nSuccessfully published {data['datasource']['ds_name']} datasource in {data['datasource']['publish_ds_data']['publish_ds_project_name']} in {data['datasource']['publish_ds_data']['site_name']} site.")
+        f"\nSuccessfully published {data['datasource']['ds_name']} datasource in {data['datasource']['publish_ds_data']['publish_ds_project_name']} in {data['datasource']['publish_ds_data']['publish_ds_site_name']} site.")
 
     return new_datasource._id
