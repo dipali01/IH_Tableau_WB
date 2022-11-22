@@ -48,3 +48,5 @@ def publish_ds(server, data, dl_ds_file_path):
 
     print(
         f"\nSuccessfully published {data['datasource']['ds_name']} datasource in {data['datasource']['publish_ds_project_name']} in {data['site_name']} site.")
+
+    return new_datasource._id
