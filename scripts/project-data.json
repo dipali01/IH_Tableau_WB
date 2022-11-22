@@ -1,7 +1,7 @@
 {
   "workbooks": [
     {
-      "is_wb_publish": true,
+      "is_wb_publish": false,
       "server_url": "https://tableau.devinvh.com/",
       "site_name": "Enterprise",
       "wb_name": "Book1",
@@ -16,11 +16,11 @@
       "datasource": {
         "ds_name": "Sample - Superstore",
         "get_ds_project_name": "Technology",
-        "publish_ds_project_name": "Technology",
+        "publish_ds_project_name": "Operations",
         "get_ds_server_url": "https://tableau.devinvh.com/",
         "publish_ds_server_url": "https://tableau.devinvh.com/"
       },
-      "is_wb_permissions_update": true,
+      "is_wb_permissions_update": false,
       "permissions": [
         {
           "permission_group_name": "",

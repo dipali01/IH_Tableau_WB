@@ -11,6 +11,7 @@ def temp_func(data, username, password):
     """
     Funcrion Description
     """
+    # Step: Sign In to the Tableau Server
     server, auth_token, version = sign_in(
         username, password, data['server_url'], data['site_name'], data['is_site_default'])
 
