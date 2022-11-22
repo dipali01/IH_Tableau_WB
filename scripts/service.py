@@ -123,6 +123,7 @@ def temp_func(data, username, password, prod_username, prod_password):
             elif data['datasource']['publish_ds_data']['publish_ds_server_name'] == "prod":
                 uname, pname, surl = prod_username, prod_password, data['prod_server_url']
 
+            print(surl)
             server, auth_token, version = sign_in(
                 uname, pname, surl,
                 data['datasource']['publish_ds_data']['publish_ds_site_name'],
