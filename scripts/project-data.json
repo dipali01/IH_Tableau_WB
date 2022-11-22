@@ -43,7 +43,7 @@
       ],
       "is_datasource_update": true,
       "datasource": {
-        "ds_name": "Sample - Superstore",
+        "ds_name": "Disposition Tracker DS",
         "get_ds_data": {
           "get_ds_server_name": "prod",
           "get_ds_project_name": "Development",
