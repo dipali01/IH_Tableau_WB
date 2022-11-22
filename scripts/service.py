@@ -101,17 +101,14 @@ def temp_func(data, username, password, prod_username, prod_password):
 
             # Step: Sign In to the Tableau Server
             server, auth_token, version = sign_in(
-                prod_username, prod_password, data['datasource']['publish_ds_server_url'], '', True)
+                prod_username, prod_password, data['datasource']['publish_ds_server_url'],
+                data['datasource']['publish_ds_site_id'], False)
 
-            all_sites, pagination_item = server.sites.get()
-            for site in all_sites:
-                print(site.id, site.name, site.content_url, site.state)
+            # Publish Datasource
+            ds_id = publish_ds(server, data, dl_ds_file_path)
 
-            # # Publish Datasource
-            # ds_id = publish_ds(server, data, dl_ds_file_path)
-
-            # # Refresh Datasource
-            # ds_refresh(server, data['datasource']['ds_name'], ds_id)
+            # Refresh Datasource
+            ds_refresh(server, data['datasource']['ds_name'], ds_id)
 
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
