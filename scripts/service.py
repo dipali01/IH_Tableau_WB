@@ -94,48 +94,46 @@ def temp_func(data, username, password, prod_username, prod_password):
     # Datasource Part
     try:
         if data['is_datasource_update']:
-            # # Step: Sign In to the Tableau Server
-            # if data['datasource']['get_ds_data']['get_ds_server_name'] == "dev":
-            #     uname, pname, surl = username, password, data['dev_server_url']
-            # elif data['datasource']['get_ds_data']['get_ds_server_name'] == "prod":
-            #     uname, pname, surl = prod_username, prod_password, data['prod_server_url']
+            # Step: Sign In to the Tableau Server
+            if data['datasource']['get_ds_data']['get_ds_server_name'] == "dev":
+                uname, pname, surl = username, password, data['dev_server_url']
+            elif data['datasource']['get_ds_data']['get_ds_server_name'] == "prod":
+                uname, pname, surl = prod_username, prod_password, data['prod_server_url']
 
-            # server, auth_token, version = sign_in(
-            #     uname, pname, surl,
-            #     data['datasource']['get_ds_data']['get_ds_site_name'],
-            #     data['datasource']['get_ds_data']['is_site_default']
-            # )
+            server, auth_token, version = sign_in(
+                uname, pname, surl,
+                data['datasource']['get_ds_data']['get_ds_site_name'],
+                data['datasource']['get_ds_data']['is_site_default']
+            )
 
-            # # Get datasource id from the name and project name
-            # ds_id = get_ds_id(
-            #     server, data['datasource']['ds_name'],
-            #     data['datasource']['get_ds_data']['get_ds_project_name'])[0]
+            # Get datasource id from the name and project name
+            ds_id = get_ds_id(
+                server, data['datasource']['ds_name'],
+                data['datasource']['get_ds_data']['get_ds_project_name'])[0]
 
-            # # Download datasource
-            # dl_ds_file_path = dl_ds(server, ds_id)
+            # Download datasource
+            dl_ds_file_path = dl_ds(server, ds_id)
 
-            # # Step: Sign Out to the Tableau Server
-            # server.auth.sign_out()
+            # Step: Sign Out to the Tableau Server
+            server.auth.sign_out()
 
-            # # Step: Sign In to the Tableau Server
-            # if data['datasource']['publish_ds_data']['publish_ds_server_name'] == "dev":
-            #     uname, pname, surl = username, password, data['dev_server_url']
-            # elif data['datasource']['publish_ds_data']['publish_ds_server_name'] == "prod":
-            #     uname, pname, surl = prod_username, prod_password, data['prod_server_url']
+            # Step: Sign In to the Tableau Server
+            if data['datasource']['publish_ds_data']['publish_ds_server_name'] == "dev":
+                uname, pname, surl = username, password, data['dev_server_url']
+            elif data['datasource']['publish_ds_data']['publish_ds_server_name'] == "prod":
+                uname, pname, surl = prod_username, prod_password, data['prod_server_url']
 
-            # server, auth_token, version = sign_in(
-            #     uname, pname, surl,
-            #     data['datasource']['publish_ds_data']['publish_ds_site_name'],
-            #     data['datasource']['publish_ds_data']['is_site_default']
-            # )
+            server, auth_token, version = sign_in(
+                uname, pname, surl,
+                data['datasource']['publish_ds_data']['publish_ds_site_name'],
+                data['datasource']['publish_ds_data']['is_site_default']
+            )
 
-            sign_in("Nirav.Padia", 'Password1',
-                    "https://tableau.devinvh.com/", "Enterprise", True)
-            # # Publish Datasource
-            # ds_id = publish_ds(server, data, dl_ds_file_path)
+            # Publish Datasource
+            ds_id = publish_ds(server, data, dl_ds_file_path)
 
-            # # Refresh Datasource
-            # ds_refresh(server, data['datasource']['ds_name'], ds_id)
+            # Refresh Datasource
+            ds_refresh(server, data['datasource']['ds_name'], ds_id)
 
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
