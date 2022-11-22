@@ -13,11 +13,11 @@ def temp_func(data, username, password, prod_username, prod_password):
     """
     # Step: Sign In to the Tableau Server
     server, auth_token, version = sign_in(
-        username if data['server_name'] == "dev" else prod_username,
-        password if data['server_name'] == "dev" else prod_password,
-        data['dev_server_url'] if data['server_name'] == "dev" else data['prod_server_url'],
-        data['site_name'],
-        data['is_site_default']
+        username if data['publish_wb_data']['server_name'] == "dev" else prod_username,
+        password if data['publish_wb_data']['server_name'] == "dev" else prod_password,
+        data['dev_server_url'] if data['publish_wb_data']['server_name'] == "dev" else data['prod_server_url'],
+        data['publish_wb_data']['site_name'],
+        data['publish_wb_data']['is_site_default']
     )
 
     # Publish Workbook Part
