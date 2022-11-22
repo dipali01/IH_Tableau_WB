@@ -19,7 +19,7 @@
         "get_ds_project_name": "Technology",
         "publish_ds_server_url": "http://tableau-alb-316754542.us-east-1.elb.amazonaws.com/",
         "publish_ds_project_name": "Development",
-        "publish_ds_site_id": "DataLabs"
+        "publish_ds_site_name": "DataLabs"
       },
       "is_wb_permissions_update": false,
       "permissions": [
