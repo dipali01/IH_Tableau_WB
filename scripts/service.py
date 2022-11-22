@@ -13,11 +13,11 @@ def temp_func(data, username, password, prod_username, prod_password):
     """
     # Step: Sign In to the Tableau Server
     server, auth_token, version = sign_in(
-        username if data['server_name'] == "dev" else prod_username,
-        password if data['server_name'] == "dev" else prod_password,
-        data['dev_server_url'] if data['server_name'] == "dev" else data['prod_server_url'],
-        data['site_name'],
-        data['is_site_default']
+        username if data['publish_wb_data']['server_name'] == "dev" else prod_username,
+        password if data['publish_wb_data']['server_name'] == "dev" else prod_password,
+        data['dev_server_url'] if data['publish_wb_data']['server_name'] == "dev" else data['prod_server_url'],
+        data['publish_wb_data']['site_name'],
+        data['publish_wb_data']['is_site_default']
     )
 
     # Publish Workbook Part
@@ -28,6 +28,7 @@ def temp_func(data, username, password, prod_username, prod_password):
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in publish workbook.\n %s", tableu_exception)
+        exit(1)
 
     # Permissions Part
     try:
@@ -83,6 +84,7 @@ def temp_func(data, username, password, prod_username, prod_password):
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in update permission of workbook.\n %s", tableu_exception)
+        exit(1)
 
     # Step: Sign Out to the Tableau Server
     server.auth.sign_out()
@@ -129,3 +131,4 @@ def temp_func(data, username, password, prod_username, prod_password):
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in datasource update.\n %s", tableu_exception)
+        exit(1)
