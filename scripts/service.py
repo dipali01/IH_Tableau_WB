@@ -57,6 +57,7 @@ def temp_func(data, username, password, prod_username, prod_password):
                     wb_id, auth_token, permission_user_or_group_id, is_group
                 )
                 print(type(user_permissions))
+                print(len(user_permissions))
                 print(type(user_permissions[0]))
 
                 # for permission_name, permission_mode in \
