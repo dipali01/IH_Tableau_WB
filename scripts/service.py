@@ -94,13 +94,13 @@ def temp_func(data, username, password, prod_username, prod_password):
                                 print(
                                     f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
                 elif len(user_permissions) < 16:
-                    temp_list = []
+                    temp_list1 = []
+                    temp_list2 = ['ViewUnderlyingData', 'CreateRefreshMetrics', 'WebAuthoring', 'ExportData', 'RunExplainData', 'ChangeHierarchy',
+                                  'ViewComments', 'ChangePermissions', 'AddComment', 'ExportImage', 'ExportXml', 'ShareView', 'Read', 'Filter', 'Delete', 'Write']
                     for permission in user_permissions:
-                        for permission_name, permission_mode in \
-                                permission_data['permission_template'].items():
-                            if permission.get('name') != permission_name:
-                                temp_list.append(permission.get('name'))
-                    print("temp_list ::", temp_list)
+                        temp_list1.append(permission.get('name'))
+                    result = set(temp_list2) - set(temp_list1)
+                    print(list(result))
 
     except Exception as tableu_exception:
         logging.error(
