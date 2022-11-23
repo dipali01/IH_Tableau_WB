@@ -56,10 +56,10 @@ def temp_func(data, username, password, prod_username, prod_password):
                     surl, version, data['publish_wb_data']['site_id'],
                     wb_id, auth_token, permission_user_or_group_id, is_group
                 )
-                print(len(user_permissions))
-                for i in user_permissions:
-                    xmlstr = ET.tostring(i, encoding='utf8', method='xml')
-                    print(xmlstr)
+                # print(len(user_permissions))
+                # for i in user_permissions:
+                #     xmlstr = ET.tostring(i, encoding='utf8', method='xml')
+                #     print(xmlstr)
 
                 if user_permissions is None:
                     for permission_name, permission_mode in \
@@ -96,7 +96,7 @@ def temp_func(data, username, password, prod_username, prod_password):
                 elif len(user_permissions) < 16:
                     temp_list=[]
                     for i in user_permissions:
-                        temp_list.append(permission.get('name'))
+                        temp_list.append(i.get('name'))
                     print("temp_list ::", temp_list)
 
     except Exception as tableu_exception:
