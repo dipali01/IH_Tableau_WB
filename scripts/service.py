@@ -73,12 +73,12 @@ def temp_func(data, username, password, prod_username, prod_password):
                 else:
                     for permission_name, permission_mode in \
                             permission_data['permission_template'].items():
-                            delete_permission(
-                                surl, data['publish_wb_data']['site_id'], auth_token, wb_id,
-                                permission_user_or_group_id, permission_name,
-                                permission_mode, version, is_group)
-                            print(
-                                f"\tPermission {permission_name} : {permission_mode} is deleted Successfully in {wb_id}\n")
+                            # delete_permission(
+                            #     surl, data['publish_wb_data']['site_id'], auth_token, wb_id,
+                            #     permission_user_or_group_id, permission_name,
+                            #     permission_mode, version, is_group)
+                            # print(
+                            #     f"\tPermission {permission_name} : {permission_mode} is deleted Successfully in {wb_id}\n")
 
                             add_permission(
                                 surl, data['publish_wb_data']['site_id'],
