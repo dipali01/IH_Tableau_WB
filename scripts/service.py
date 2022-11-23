@@ -1,7 +1,7 @@
 """
 Neccessory Module imports
 """
-import sys
+import xml.etree.ElementTree as ET
 import logging
 from publish import publish_wb, publish_ds
 from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh
@@ -59,6 +59,9 @@ def temp_func(data, username, password, prod_username, prod_password):
                 print(type(user_permissions))
                 print(len(user_permissions))
                 print(type(user_permissions[0]))
+                for i in user_permissions:
+                    xmlstr = ET.tostring(i, encoding='utf8', method='xml')
+                    print(xmlstr)
 
                 # for permission_name, permission_mode in \
                 #         permission_data['permission_template'].items():
