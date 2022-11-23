@@ -66,16 +66,17 @@ def temp_func(data, username, password, prod_username, prod_password):
                     existed_permissions_dict.update({permission.get('name'): permission.get('mode')})
 
                 existed_permissions_dict_key_list = list(existed_permissions_dict.keys())
-                # all_permissions_key_list = list(data['permissions']['permission_template'].keys())
-
+                all_permissions_key_list = list(permission_data['permission_template'].keys())
+                
                 print(existed_permissions_dict_key_list)
                 print(all_permissions_key_list)
-                # common_permissioins_list = list(set(existed_permissions_dict_key_list).intersection(set(all_permissions_key_list)))
 
-                # for common_permissioins in common_permissioins_list:
-                #     delete_permissions_dict.update({common_permissioins: existed_permissions_dict.get('common_permissioins')})
+                common_permissioins_list = list(set(existed_permissions_dict_key_list).intersection(set(all_permissions_key_list)))
 
-                # print(delete_permissions_dict)
+                for common_permissioins in common_permissioins_list:
+                    delete_permissions_dict.update({common_permissioins: existed_permissions_dict.get('common_permissioins')})
+
+                print(delete_permissions_dict)
 
                 # if user_permissions is None:
                 #     for permission_name, permission_mode in \
