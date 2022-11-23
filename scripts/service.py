@@ -53,14 +53,15 @@ def temp_func(data, username, password, prod_username, prod_password):
 
                 # get permissions of specific workbook
                 user_permissions = query_permission(
-                    data, wb_id, permission_user_or_group_id,
-                    version, auth_token, is_group)
+                    surl, version, data['publish_wb_data']['site_id'],
+                    wb_id, auth_token, permission_user_or_group_id, is_group
+                )
 
                 for permission_name, permission_mode in \
                         permission_data['permission_template'].items():
                     if user_permissions is None:
                         add_permission(
-                            data, wb_id, permission_user_or_group_id, version,
+                            surl, data['publish_wb_data']['site_id'], wb_id, permission_user_or_group_id, version,
                             auth_token, permission_name, permission_mode, is_group)
                         print(
                             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
@@ -72,14 +73,14 @@ def temp_func(data, username, password, prod_username, prod_password):
                                     'mode')
 
                                 delete_permission(
-                                    data, auth_token, wb_id,
+                                    surl, data['publish_wb_data']['site_id'], auth_token, wb_id,
                                     permission_user_or_group_id, permission_name,
                                     existing_mode, version, is_group)
                                 print(
                                     f"\tPermission {permission_name} : {existing_mode} is deleted Successfully in {wb_id}\n")
 
                                 add_permission(
-                                    data, wb_id, permission_user_or_group_id,
+                                    surl, data['publish_wb_data']['site_id'], wb_id, permission_user_or_group_id,
                                     version, auth_token, permission_name,
                                     permission_mode, is_group)
                                 print(
@@ -141,4 +142,4 @@ def temp_func(data, username, password, prod_username, prod_password):
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in datasource update.\n %s", tableu_exception)
-        sys.exit(1)
+        exit(1)
