@@ -137,7 +137,7 @@ def temp_func(data, username, password, prod_username, prod_password):
 
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
-    except Exception as tableu_exception:
-        logging.error(
-            "Something went wrong in datasource update.\n %s", tableu_exception)
+    except Exception as e:
+        logging.exception(
+            "Something went wrong in datasource update.\n %s", e)
         exit(1)
