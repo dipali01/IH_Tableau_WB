@@ -57,116 +57,53 @@ def temp_func(data, username, password, prod_username, prod_password):
                     wb_id, auth_token, permission_user_or_group_id, is_group
                 )
 
-                existed_permissions_dict = {}
-                delete_permissions_dict = {}
-                existed_permissions_dict_key_list = []
-                all_permissions_key_list = []
+                if user_permissions is None:
+                    for permission_name, permission_mode in \
+                            permission_data['permission_template'].items():
+                        add_permission(
+                            surl, data['publish_wb_data']['site_id'],
+                            wb_id, permission_user_or_group_id, version,
+                            auth_token, permission_name, permission_mode, is_group)
+                        print(
+                            f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
+                else:
+                    existed_permissions_dict = {}
+                    delete_permissions_dict = {}
+                    existed_permissions_dict_key_list = []
+                    all_permissions_key_list = []
 
-                for permission in user_permissions:
-                    existed_permissions_dict.update(
-                        {permission.get('name'): permission.get('mode')})
+                    for permission in user_permissions:
+                        existed_permissions_dict.update(
+                            {permission.get('name'): permission.get('mode')})
 
-                # print("existed_permissions_dict ::", existed_permissions_dict)
+                    existed_permissions_dict_key_list = list(
+                        existed_permissions_dict.keys())
+                    all_permissions_key_list = list(
+                        permission_data['permission_template'].keys())
 
-                existed_permissions_dict_key_list = list(
-                    existed_permissions_dict.keys())
-                all_permissions_key_list = list(
-                    permission_data['permission_template'].keys())
+                    common_permissioins_list = list(set(
+                        existed_permissions_dict_key_list).intersection(set(all_permissions_key_list)))
 
-                common_permissioins_list = list(set(
-                    existed_permissions_dict_key_list).intersection(set(all_permissions_key_list)))
+                    for common_permissioins in common_permissioins_list:
+                        delete_permissions_dict.update(
+                            {common_permissioins: existed_permissions_dict.get(common_permissioins)})
 
-                for common_permissioins in common_permissioins_list:
-                    # delete_permissions_dict[common_permissioins] = existed_permissions_dict.get(common_permissioins)
-                    delete_permissions_dict.update(
-                        {common_permissioins: existed_permissions_dict.get(common_permissioins)})
+                    for permission_name, permission_mode in delete_permissions_dict.items():
+                        delete_permission(
+                            surl, data['publish_wb_data']['site_id'], auth_token, wb_id,
+                            permission_user_or_group_id, permission_name,
+                            permission_mode, version, is_group)
+                        print(
+                            f"\tPermission {permission_name} : {permission_mode} is deleted Successfully in {wb_id}\n")
 
-                # print("delete_permissions_dict ::", delete_permissions_dict)
-
-                for permission_name, permission_mode in delete_permissions_dict.items():
-                    delete_permission(
-                        surl, data['publish_wb_data']['site_id'], auth_token, wb_id,
-                        permission_user_or_group_id, permission_name,
-                        permission_mode, version, is_group)
-                    print(
-                        f"\tPermission {permission_name} : {permission_mode} is deleted Successfully in {wb_id}\n")
-
-                # if user_permissions is None:
-                #     for permission_name, permission_mode in \
-                #             permission_data['permission_template'].items():
-                #         add_permission(
-                #             surl, data['publish_wb_data']['site_id'],
-                #             wb_id, permission_user_or_group_id, version,
-                #             auth_token, permission_name, permission_mode, is_group)
-                #         print(
-                #             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
-                # else:
-                #     temp_list1, temp_list2, temp_list3 = [], [], []
-
-                #     for permission_name, permission_mode in \
-                #             permission_data['permission_template'].items():
-                #         temp_list2.append(permission_name)
-
-                #     for permission in user_permissions:
-                #         temp_list1.append(permission.get('name'))
-                #         print(temp_list1)
-
-                #     temp_list3 = list(set(temp_list1) & set(temp_list2))
-                #     print(temp_list3)
-
-                    # for permission_name, permission_mode in \
-                    #         permission_data['permission_template'].items():
-                    #     add_permission(
-                    #         surl, data['publish_wb_data']['site_id'],
-                    #         wb_id, permission_user_or_group_id, version,
-                    #         auth_token, permission_name, permission_mode, is_group)
-                    #     print(
-                    #         f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
-
-                # elif len(user_permissions) == 16:
-                #     for permission in user_permissions:
-                #         for permission_name, permission_mode in \
-                #                 permission_data['permission_template'].items():
-                #             if permission.get('name') == permission_name and \
-                #                     permission.get('mode') != permission_mode:
-                #                 existing_permission_mode = permission.get(
-                #                     'mode')
-
-                #                 delete_permission(
-                #                     surl, data['publish_wb_data']['site_id'], auth_token, wb_id,
-                #                     permission_user_or_group_id, permission_name,
-                #                     existing_permission_mode, version, is_group)
-                #                 print(
-                #                     f"\tPermission {permission_name} : {existing_permission_mode} is deleted Successfully in {wb_id}\n")
-
-                #                 add_permission(
-                #                     surl, data['publish_wb_data']['site_id'],
-                #                     wb_id, permission_user_or_group_id,
-                #                     version, auth_token, permission_name,
-                #                     permission_mode, is_group)
-                #                 print(
-                #                     f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
-                # elif len(user_permissions) < 16:
-                #     temp_list1 = []
-                #     temp_list2 = ['ViewUnderlyingData', 'CreateRefreshMetrics', 'WebAuthoring', 'ExportData', 'RunExplainData', 'ChangeHierarchy',
-                #                   'ViewComments', 'ChangePermissions', 'AddComment', 'ExportImage', 'ExportXml', 'ShareView', 'Read', 'Filter', 'Delete', 'Write']
-
-                #     for permission in user_permissions:
-                #         temp_list1.append(permission.get('name'))
-                #     result = set(temp_list2) - set(temp_list1)
-                #     print(list(result))
-
-                #     for permission_name, permission_mode in \
-                #             permission_data['permission_template'].items():
-                #         for permission in result:
-                #             if permission == permission_name:
-                #                 add_permission(
-                #                     surl, data['publish_wb_data']['site_id'],
-                #                     wb_id, permission_user_or_group_id,
-                #                     version, auth_token, permission_name,
-                #                     permission_mode, is_group)
-                #                 print(
-                #                     f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
+                    for permission_name, permission_mode in \
+                            permission_data['permission_template'].items():
+                        add_permission(
+                            surl, data['publish_wb_data']['site_id'],
+                            wb_id, permission_user_or_group_id, version,
+                            auth_token, permission_name, permission_mode, is_group)
+                        print(
+                            f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
 
     except Exception as tableu_exception:
         logging.error(
