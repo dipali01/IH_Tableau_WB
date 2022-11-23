@@ -53,8 +53,8 @@ def temp_func(data, username, password, prod_username, prod_password):
 
                 # get permissions of specific workbook
                 user_permissions = query_permission(
-                    data, wb_id, permission_user_or_group_id,
-                    version, auth_token, is_group)
+                    surl, version, data['publish_wb_data']['site_id'], wb_id, auth_token, permission_user_or_group_id, is_group
+                )
 
                 for permission_name, permission_mode in \
                         permission_data['permission_template'].items():

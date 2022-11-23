@@ -7,8 +7,7 @@ import requests
 xmlns = {'t': 'http://tableau.com/api'}
 
 
-def query_permission(data, wb_id, permission_user_or_group_id,
-                     version, auth_token, is_group):
+def query_permission(server_url, version, site_id, wb_id, auth_token, permission_user_or_group_id, is_group):
     """
     Funcrion Description
     """
