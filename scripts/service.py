@@ -69,8 +69,6 @@ def temp_func(data, username, password, prod_username, prod_password):
                     else:
                         for permission in user_permissions:
                             print('------------------------')
-                            parent_map = {c: p for p in permission.iter() for c in p}
-                            print(parent_map)
                             print(
                                 f"permission name: {permission.get('name')}, permission mode: {permission.get('mode')}")
 
