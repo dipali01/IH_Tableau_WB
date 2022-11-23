@@ -67,6 +67,7 @@ def temp_func(data, username, password, prod_username, prod_password):
                         {permission.get('name'): permission.get('mode')})
 
                 print("existed_permissions_dict ::", existed_permissions_dict)
+
                 existed_permissions_dict_key_list = list(
                     existed_permissions_dict.keys())
                 all_permissions_key_list = list(
@@ -76,10 +77,12 @@ def temp_func(data, username, password, prod_username, prod_password):
                     existed_permissions_dict_key_list).intersection(set(all_permissions_key_list)))
 
                 for common_permissioins in common_permissioins_list:
-                    delete_permissions_dict.update(
-                        {common_permissioins: existed_permissions_dict.get('common_permissioins')})
+                    delete_permissions_dict[common_permissioins] = existed_permissions_dict.get('common_permissioins')
+                    # delete_permissions_dict.update(
+                        # {common_permissioins: existed_permissions_dict.get('common_permissioins')})
 
                 print("delete_permissions_dict ::", delete_permissions_dict)
+
                 # for permission_name, permission_mode in delete_permissions_dict.items():
                 #     delete_permission(
                 #         surl, data['publish_wb_data']['site_id'], auth_token, wb_id,
