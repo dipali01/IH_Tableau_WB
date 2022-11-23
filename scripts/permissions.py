@@ -11,7 +11,7 @@ def query_permission(server_url, version, site_id, wb_id, auth_token, permission
     """
     Funcrion Description
     """
-    url = f"{data['server_url']}api/{version}/sites/{data['site_id']}/workbooks/{wb_id}/permissions"
+    url = f"{server_url}api/{version}/sites/{site_id}/workbooks/{wb_id}/permissions"
 
     server_response = requests.get(
         url, headers={'x-tableau-auth': auth_token}, timeout=5000)
