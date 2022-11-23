@@ -66,7 +66,7 @@ def temp_func(data, username, password, prod_username, prod_password):
                     existed_permissions_dict.update({permission.get('name'): permission.get('mode')})
 
                 existed_permissions_dict_key_list = list(existed_permissions_dict.keys())
-                all_permissions_key_list = list(data['permissions']['permission_template'].keys())
+                # all_permissions_key_list = list(data['permissions']['permission_template'].keys())
 
                 print(existed_permissions_dict_key_list)
                 print(all_permissions_key_list)
