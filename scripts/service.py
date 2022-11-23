@@ -140,4 +140,3 @@ def temp_func(data, username, password, prod_username, prod_password):
             server.auth.sign_out()
     except Exception as tableu_exception:
         print(f"Something went wrong in datasource update.\n {tableu_exception}")
-        exit(0)
