@@ -67,9 +67,6 @@ def temp_func(data, username, password, prod_username, prod_password):
 
                 existed_permissions_dict_key_list = list(existed_permissions_dict.keys())
                 all_permissions_key_list = list(permission_data['permission_template'].keys())
-                
-                print(existed_permissions_dict_key_list)
-                print(all_permissions_key_list)
 
                 common_permissioins_list = list(set(existed_permissions_dict_key_list).intersection(set(all_permissions_key_list)))
 
