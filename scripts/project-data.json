@@ -41,7 +41,7 @@
           }
         }
       ],
-      "is_datasource_update": false,
+      "is_datasource_update": true,
       "datasource": {
         "ds_name": "Disposition Tracker DS",
         "get_ds_data": {
