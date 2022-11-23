@@ -68,7 +68,9 @@ def temp_func(data, username, password, prod_username, prod_password):
                             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
                     else:
                         for permission in user_permissions:
-                            print(permission.__dict__)
+                            print('------------------------')
+                            parent_map = {c: p for p in permission.iter() for c in p}
+                            print(parent_map)
                             print(
                                 f"permission name: {permission.get('name')}, permission mode: {permission.get('mode')}")
 
