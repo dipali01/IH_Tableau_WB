@@ -59,38 +59,38 @@ def temp_func(data, username, password, prod_username, prod_password):
                 print(type(user_permissions))
 
                 # for permission_name, permission_mode in \
-                        permission_data['permission_template'].items():
-                    if user_permissions is None:
-                        add_permission(
-                            surl, data['publish_wb_data']['site_id'],
-                            wb_id, permission_user_or_group_id, version,
-                            auth_token, permission_name, permission_mode, is_group)
-                        print(
-                            f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
-                    else:
-                        for permission in user_permissions:
-                            print(
-                                f"permission name: {permission.get('name')}, permission mode: {permission.get('mode')}")
+                #         permission_data['permission_template'].items():
+                #     if user_permissions is None:
+                #         add_permission(
+                #             surl, data['publish_wb_data']['site_id'],
+                #             wb_id, permission_user_or_group_id, version,
+                #             auth_token, permission_name, permission_mode, is_group)
+                #         print(
+                #             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
+                #     else:
+                #         for permission in user_permissions:
+                #             print(
+                #                 f"permission name: {permission.get('name')}, permission mode: {permission.get('mode')}")
 
-                            if permission.get('name') == permission_name and \
-                                    permission.get('mode') != permission_mode:
-                                existing_mode = permission.get(
-                                    'mode')
+                #             if permission.get('name') == permission_name and \
+                #                     permission.get('mode') != permission_mode:
+                #                 existing_mode = permission.get(
+                #                     'mode')
 
-                                delete_permission(
-                                    surl, data['publish_wb_data']['site_id'], auth_token, wb_id,
-                                    permission_user_or_group_id, permission_name,
-                                    existing_mode, version, is_group)
-                                print(
-                                    f"\tPermission {permission_name} : {existing_mode} is deleted Successfully in {wb_id}\n")
+                #                 delete_permission(
+                #                     surl, data['publish_wb_data']['site_id'], auth_token, wb_id,
+                #                     permission_user_or_group_id, permission_name,
+                #                     existing_mode, version, is_group)
+                #                 print(
+                #                     f"\tPermission {permission_name} : {existing_mode} is deleted Successfully in {wb_id}\n")
 
-                                add_permission(
-                                    surl, data['publish_wb_data']['site_id'],
-                                    wb_id, permission_user_or_group_id,
-                                    version, auth_token, permission_name,
-                                    permission_mode, is_group)
-                                print(
-                                    f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
+                #                 add_permission(
+                #                     surl, data['publish_wb_data']['site_id'],
+                #                     wb_id, permission_user_or_group_id,
+                #                     version, auth_token, permission_name,
+                #                     permission_mode, is_group)
+                #                 print(
+                #                     f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in update permission of workbook.\n %s", tableu_exception)
