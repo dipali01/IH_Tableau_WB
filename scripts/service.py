@@ -72,13 +72,12 @@ def temp_func(data, username, password, prod_username, prod_password):
                             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
                 elif len(user_permissions) == 16:
                     for permission in user_permissions:
-                        # print(
-                        #     f"permission name: {permission.get('name')}, permission mode: {permission.get('mode')}")
                         for permission_name, permission_mode in \
                                 permission_data['permission_template'].items():
                             if permission.get('name') == permission_name and \
                                     permission.get('mode') != permission_mode:
-                                existing_permission_mode = permission.get('mode')
+                                existing_permission_mode = permission.get(
+                                    'mode')
 
                                 delete_permission(
                                     surl, data['publish_wb_data']['site_id'], auth_token, wb_id,
@@ -94,6 +93,12 @@ def temp_func(data, username, password, prod_username, prod_password):
                                     permission_mode, is_group)
                                 print(
                                     f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
+                elif len(user_permissions) < 16:
+                    temp_list=[]
+                    for i in user_permissions:
+                        temp_list.append(permission.get('name'))
+                    print("temp_list ::", temp_list)
+
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in update permission of workbook.\n %s", tableu_exception)
