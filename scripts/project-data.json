@@ -3,7 +3,7 @@
     {
       "dev_server_url": "https://tableau.devinvh.com/",
       "prod_server_url": "http://tableau-alb-316754542.us-east-1.elb.amazonaws.com/",
-      "is_wb_publish": false,
+      "is_wb_publish": true,
       "publish_wb_data": {
         "site_id": "55239ed7-57b4-4b10-b269-b2b5fe71f280",
         "server_name": "prod",
@@ -43,17 +43,17 @@
       ],
       "is_datasource_update": true,
       "datasource": {
-        "ds_name": "Sample - Superstore",
+        "ds_name": "Disposition Tracker DS",
         "get_ds_data": {
           "get_ds_server_name": "prod",
-          "get_ds_project_name": "Test1",
           "get_ds_site_name": "DataLabs",
+          "get_ds_project_name": "Development",
           "is_site_default": false
         },
         "publish_ds_data": {
           "publish_ds_server_name": "dev",
-          "publish_ds_project_name": "Development",
           "publish_ds_site_name": "DataLab",
+          "publish_ds_project_name": "Test1",
           "is_site_default": false
         }
       }
