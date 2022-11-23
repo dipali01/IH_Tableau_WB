@@ -94,9 +94,12 @@ def temp_func(data, username, password, prod_username, prod_password):
                                 print(
                                     f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
                 elif len(user_permissions) < 16:
-                    temp_list=[]
-                    for i in user_permissions:
-                        temp_list.append(i.get('name'))
+                    temp_list = []
+                    for permission in user_permissions:
+                        for permission_name, permission_mode in \
+                                permission_data['permission_template'].items():
+                            if permission.get('name') != permission_name:
+                                temp_list.append(permission.get('name'))
                     print("temp_list ::", temp_list)
 
     except Exception as tableu_exception:
