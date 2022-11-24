@@ -169,4 +169,4 @@ def temp_func(data, username, password, prod_username, prod_password):
         # exit(1)
         # quit()
         # sys.exit("Voting not allowed because the age is less than 18")
-        os._exit()
+        os._exit(1)
