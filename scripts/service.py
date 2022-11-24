@@ -1,7 +1,7 @@
 """
 Neccessory Module imports
 """
-import sys
+import os
 import logging
 from publish import publish_wb, publish_ds
 from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh
@@ -168,4 +168,5 @@ def temp_func(data, username, password, prod_username, prod_password):
             "Something went wrong in datasource update.\n %s", tableu_exception)
         # exit(1)
         # quit()
-        sys.exit("Voting not allowed because the age is less than 18")
+        # sys.exit("Voting not allowed because the age is less than 18")
+        os._exit()
