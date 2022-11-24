@@ -166,3 +166,5 @@ def temp_func(data, username, password, prod_username, prod_password):
         logging.error(
             "Something went wrong in datasource update.\n %s", tableu_exception)
         exit(1)
+        logging.error(
+            "After Exit(1) block")
