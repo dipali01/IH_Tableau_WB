@@ -167,4 +167,5 @@ def temp_func(data, username, password, prod_username, prod_password):
         logging.error(
             "Something went wrong in datasource update.\n %s", tableu_exception)
         # exit(1)
-        quit()
+        # quit()
+        sys.exit("Voting not allowed because the age is less than 18")
