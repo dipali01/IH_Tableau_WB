@@ -103,7 +103,6 @@ def temp_func(data, username, password, prod_username, prod_password):
                             auth_token, permission_name, permission_mode, is_group)
                         print(
                             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
-
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in update permission of workbook.\n %s", tableu_exception)
@@ -115,46 +114,47 @@ def temp_func(data, username, password, prod_username, prod_password):
     # Datasource Part
     try:
         if data['is_datasource_update']:
-            # Step: Sign In to the Tableau Server
-            if data['datasource']['get_ds_data']['get_ds_server_name'] == "dev":
-                uname, pname, surl = username, password, data['dev_server_url']
-            elif data['datasource']['get_ds_data']['get_ds_server_name'] == "prod":
-                uname, pname, surl = prod_username, prod_password, data['prod_server_url']
+            for datasources in data['datasources']:
+                # Step: Sign In to the Tableau Server
+                if datasources['get_ds_data']['get_ds_server_name'] == "dev":
+                    uname, pname, surl = username, password, data['dev_server_url']
+                elif datasources['get_ds_data']['get_ds_server_name'] == "prod":
+                    uname, pname, surl = prod_username, prod_password, data['prod_server_url']
 
-            server, auth_token, version = sign_in(
-                uname, pname, surl,
-                data['datasource']['get_ds_data']['get_ds_site_name'],
-                data['datasource']['get_ds_data']['is_site_default']
-            )
+                server, auth_token, version = sign_in(
+                    uname, pname, surl,
+                    datasources['get_ds_data']['get_ds_site_name'],
+                    datasources['get_ds_data']['is_site_default']
+                )
 
-            # Get datasource id from the name and project name
-            ds_id = get_ds_id(
-                server, data['datasource']['ds_name'],
-                data['datasource']['get_ds_data']['get_ds_project_name'])[0]
+                # Get datasource id from the name and project name
+                ds_id = get_ds_id(
+                    server, datasources['ds_name'],
+                    datasources['get_ds_data']['get_ds_project_name'])[0]
 
-            # Download datasource
-            dl_ds_file_path = dl_ds(server, ds_id)
+                # Download datasource
+                dl_ds_file_path = dl_ds(server, ds_id)
 
-            # Step: Sign Out to the Tableau Server
-            server.auth.sign_out()
+                # Step: Sign Out to the Tableau Server
+                server.auth.sign_out()
 
-            # Step: Sign In to the Tableau Server
-            if data['datasource']['publish_ds_data']['publish_ds_server_name'] == "dev":
-                uname, pname, surl = username, password, data['dev_server_url']
-            elif data['datasource']['publish_ds_data']['publish_ds_server_name'] == "prod":
-                uname, pname, surl = prod_username, prod_password, data['prod_server_url']
+                # Step: Sign In to the Tableau Server
+                if datasources['publish_ds_data']['publish_ds_server_name'] == "dev":
+                    uname, pname, surl = username, password, data['dev_server_url']
+                elif datasources['publish_ds_data']['publish_ds_server_name'] == "prod":
+                    uname, pname, surl = prod_username, prod_password, data['prod_server_url']
 
-            server, auth_token, version = sign_in(
-                uname, pname, surl,
-                data['datasource']['publish_ds_data']['publish_ds_site_name'],
-                data['datasource']['publish_ds_data']['is_site_default']
-            )
+                server, auth_token, version = sign_in(
+                    uname, pname, surl,
+                    datasources['publish_ds_data']['publish_ds_site_name'],
+                    datasources['publish_ds_data']['is_site_default']
+                )
 
-            # Publish Datasource
-            ds_id = publish_ds(server, data, dl_ds_file_path)
+                # Publish Datasource
+                ds_id = publish_ds(server, data, dl_ds_file_path)
 
-            # Refresh Datasource
-            ds_refresh(server, data['datasource']['ds_name'], ds_id)
+                # Refresh Datasource
+                ds_refresh(server, datasources['ds_name'], ds_id)
 
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
