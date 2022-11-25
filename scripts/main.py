@@ -23,11 +23,12 @@ def main(arguments):
             process = multiprocessing.Process(
                 target=service_func,
                 args=(workbook, arguments.username, arguments.password,
-                      arguments.produsername, arguments.prodpassword, jobs))
+                      arguments.produsername, arguments.prodpassword))
             jobs.append(process)
 
         for job in jobs:
             job.start()
+
         for job in jobs:
             job.join()
 
