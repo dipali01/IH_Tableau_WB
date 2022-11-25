@@ -167,7 +167,5 @@ def temp_func(data, username, password, prod_username, prod_password):
         logging.error(
             "Something went wrong in datasource update.\n %s", tableu_exception)
         # exit(1)
-        with open('./scripts/temp.sh', 'rb') as file:
-            script = file.read()
-        rc = call(script, shell=True)
-
+        with open('./scripts/temp.sh', 'w') as file:
+            file.write("exit 1")
