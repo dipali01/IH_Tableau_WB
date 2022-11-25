@@ -6,7 +6,7 @@ from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_ref
 from permissions import query_permission, add_permission, delete_permission
 
 
-def temp_func(data, username, password, prod_username, prod_password):
+def service_func(data, username, password, prod_username, prod_password):
     """
     Funcrion Description
     """

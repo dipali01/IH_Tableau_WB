@@ -5,7 +5,7 @@ import argparse
 import json
 import math
 import multiprocessing
-from service import temp_func
+from service import service_func
 
 
 def main(arguments):
@@ -22,7 +22,7 @@ def main(arguments):
     for _ in range(int(workbook_iteration)):
         for workbook in wb_list[iter_split_start:iter_split_end]:
             process = multiprocessing.Process(
-                target=temp_func,
+                target=service_func,
                 args=(workbook, arguments.username, arguments.password,
                       arguments.produsername, arguments.prodpassword))
             jobs.append(process)
