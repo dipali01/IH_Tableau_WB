@@ -12,7 +12,6 @@ def main(arguments):
     """
     Funcrion Description
     """
-    open('./scripts/temp.sh', 'w').close()
 
     wb_list = json.loads(arguments.project_data)
     num_proc = multiprocessing.cpu_count()
@@ -24,7 +23,7 @@ def main(arguments):
             process = multiprocessing.Process(
                 target=service_func,
                 args=(workbook, arguments.username, arguments.password,
-                      arguments.produsername, arguments.prodpassword))
+                      arguments.produsername, arguments.prodpassword, jobs))
             jobs.append(process)
 
         for job in jobs:

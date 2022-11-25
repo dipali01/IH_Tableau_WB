@@ -1,12 +1,15 @@
 """
 Neccessory Module imports
 """
+import sys
+import logging
+from multiprocessing import active_children
 from publish import publish_wb, publish_ds
 from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh, raise_error
 from permissions import query_permission, add_permission, delete_permission
 
 
-def service_func(data, username, password, prod_username, prod_password):
+def service_func(data, username, password, prod_username, prod_password, jobs):
     """
     Funcrion Description
     """
@@ -158,4 +161,9 @@ def service_func(data, username, password, prod_username, prod_password):
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
     except Exception as tableu_exception:
-        raise_error('datasource update', tableu_exception)
+        active = active_children()
+        for job in active:
+            job.terminate()
+        logging.error(
+            "Something went wrong in publish datasource.\n %s", tableu_exception)
+        exit(1)
