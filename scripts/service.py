@@ -167,6 +167,6 @@ def temp_func(data, username, password, prod_username, prod_password):
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in datasource update.\n %s", tableu_exception)
-        subprocess.run('exit 1', shell=True)
+        subprocess.run(["exit 1"])
         # with open('./scripts/temp.sh', 'w') as file:
         #     file.write("exit 1")
