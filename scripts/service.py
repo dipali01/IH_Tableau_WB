@@ -1,6 +1,7 @@
 """
 Neccessory Module imports
 """
+import subprocess
 import logging
 from subprocess import call
 from publish import publish_wb, publish_ds
@@ -166,6 +167,6 @@ def temp_func(data, username, password, prod_username, prod_password):
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in datasource update.\n %s", tableu_exception)
-        # exit(1)
-        with open('./scripts/temp.sh', 'w') as file:
-            file.write("exit 1")
+        subprocess.run('exit 1', shell=True)
+        # with open('./scripts/temp.sh', 'w') as file:
+        #     file.write("exit 1")
