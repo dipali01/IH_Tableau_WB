@@ -1,7 +1,9 @@
 """
 Neccessory Module imports
 """
+import sys
 import logging
+from exitstatus import ExitStatus
 from publish import publish_wb, publish_ds
 from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh
 from permissions import query_permission, add_permission, delete_permission
@@ -165,5 +167,5 @@ def temp_func(data, username, password, prod_username, prod_password):
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in datasource update.\n %s", tableu_exception)
-        exit(1)
-        print("Aftrer exit block")
+        # exit(1)
+        sys.exit(ExitStatus.failure)
