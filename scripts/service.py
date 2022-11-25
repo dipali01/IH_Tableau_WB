@@ -1,9 +1,7 @@
 """
 Neccessory Module imports
 """
-import subprocess
 import logging
-from subprocess import call
 from publish import publish_wb, publish_ds
 from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh
 from permissions import query_permission, add_permission, delete_permission
@@ -13,6 +11,8 @@ def temp_func(data, username, password, prod_username, prod_password):
     """
     Funcrion Description
     """
+    open("./scripts/temp.sh", 'w').close()
+
     # Step: Sign In to the Tableau Server
     if data['publish_wb_data']['server_name'] == "dev":
         uname, pname, surl = username, password, data['dev_server_url']
@@ -167,6 +167,5 @@ def temp_func(data, username, password, prod_username, prod_password):
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in datasource update.\n %s", tableu_exception)
-        subprocess.run(["exit 1"])
-        # with open('./scripts/temp.sh', 'w') as file:
-        #     file.write("exit 1")
+        with open('./scripts/temp.sh', 'w') as file:
+            file.write("exit 1")
