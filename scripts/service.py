@@ -1,9 +1,8 @@
 """
 Neccessory Module imports
 """
-import logging
 from publish import publish_wb, publish_ds
-from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh
+from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh, raise_error
 from permissions import query_permission, add_permission, delete_permission
 
 
@@ -11,7 +10,6 @@ def temp_func(data, username, password, prod_username, prod_password):
     """
     Funcrion Description
     """
-
     # Step: Sign In to the Tableau Server
     if data['publish_wb_data']['server_name'] == "dev":
         uname, pname, surl = username, password, data['dev_server_url']
@@ -29,10 +27,7 @@ def temp_func(data, username, password, prod_username, prod_password):
         if data['is_wb_publish']:
             wb_id = publish_wb(server, data)
     except Exception as tableu_exception:
-        logging.error(
-            "Something went wrong in publish workbook.\n %s", tableu_exception)
-        with open('./scripts/temp.sh', 'w') as file:
-            file.write("exit 1")
+        raise_error('publish workbook', tableu_exception)
 
     # Permissions Part
     try:
@@ -106,10 +101,7 @@ def temp_func(data, username, password, prod_username, prod_password):
                         print(
                             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
     except Exception as tableu_exception:
-        logging.error(
-            "Something went wrong in update permission of workbook.\n %s", tableu_exception)
-        with open('./scripts/temp.sh', 'w') as file:
-            file.write("exit 1")
+        raise_error('update permission of workbook', tableu_exception)
 
     # Step: Sign Out to the Tableau Server
     server.auth.sign_out()
@@ -166,7 +158,4 @@ def temp_func(data, username, password, prod_username, prod_password):
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
     except Exception as tableu_exception:
-        logging.error(
-            "Something went wrong in datasource update.\n %s", tableu_exception)
-        with open('./scripts/temp.sh', 'w') as file:
-            file.write("exit 1")
+        raise_error('datasource update', tableu_exception)
