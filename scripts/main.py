@@ -12,6 +12,8 @@ def main(arguments):
     """
     Funcrion Description
     """
+    open('./scripts/temp.sh', 'w').close()
+
     wb_list = json.loads(arguments.project_data)
     num_proc = multiprocessing.cpu_count()
     workbook_iteration = math.ceil(len(wb_list) / num_proc)
