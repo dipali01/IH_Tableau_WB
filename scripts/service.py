@@ -11,7 +11,6 @@ def temp_func(data, username, password, prod_username, prod_password):
     """
     Funcrion Description
     """
-    open("./scripts/temp.sh", 'w').close()
 
     # Step: Sign In to the Tableau Server
     if data['publish_wb_data']['server_name'] == "dev":
@@ -32,7 +31,8 @@ def temp_func(data, username, password, prod_username, prod_password):
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in publish workbook.\n %s", tableu_exception)
-        exit(1)
+        with open('./scripts/temp.sh', 'w') as file:
+            file.write("exit 1")
 
     # Permissions Part
     try:
@@ -108,7 +108,8 @@ def temp_func(data, username, password, prod_username, prod_password):
     except Exception as tableu_exception:
         logging.error(
             "Something went wrong in update permission of workbook.\n %s", tableu_exception)
-        exit(1)
+        with open('./scripts/temp.sh', 'w') as file:
+            file.write("exit 1")
 
     # Step: Sign Out to the Tableau Server
     server.auth.sign_out()
