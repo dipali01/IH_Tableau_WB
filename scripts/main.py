@@ -2,7 +2,6 @@
 Neccessory Module imports
 """
 import argparse
-import logging
 import json
 import math
 import multiprocessing
@@ -17,25 +16,23 @@ def main(arguments):
     num_proc = multiprocessing.cpu_count()
     workbook_iteration = math.ceil(len(wb_list) / num_proc)
     iter_split_start, iter_split_end, jobs = 0, num_proc, []
-    try:
-        for _ in range(int(workbook_iteration)):
-            for workbook in wb_list[iter_split_start:iter_split_end]:
-                process = multiprocessing.Process(
-                    target=temp_func, args=(workbook, arguments.username, arguments.password, arguments.produsername, arguments.prodpassword))
-                jobs.append(process)
 
-            for job in jobs:
-                job.start()
-            for job in jobs:
-                job.join()
+    for _ in range(int(workbook_iteration)):
+        for workbook in wb_list[iter_split_start:iter_split_end]:
+            process = multiprocessing.Process(
+                target=temp_func,
+                args=(workbook, arguments.username, arguments.password,
+                      arguments.produsername, arguments.prodpassword))
+            jobs.append(process)
 
-            iter_split_start += num_proc
-            iter_split_end += num_proc
-            jobs = []
-    except Exception as multiproccessing_exception:
-        logging.error(
-            "Something went wrong.\n %s", multiproccessing_exception)
-        exit(1)
+        for job in jobs:
+            job.start()
+        for job in jobs:
+            job.join()
+
+        iter_split_start += num_proc
+        iter_split_end += num_proc
+        jobs = []
 
 
 if __name__ == '__main__':
