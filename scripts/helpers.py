@@ -1,7 +1,6 @@
 """
 Neccessory Module imports
 """
-import logging
 import xml.etree.ElementTree as ET
 import tableauserverclient as TSC
 xmlns = {'t': 'http://tableau.com/api'}
@@ -111,13 +110,3 @@ def ds_refresh(server, ds_name, ds_id):
     # call the refresh method with the data source item
     server.datasources.refresh(datasource)
     print(f"Datasource {ds_name} refresh successfully.")
-
-
-def raise_error(data, tableu_exception):
-    """
-    Funcrion Description
-    """
-    logging.error(
-        f"Something went wrong in {data}.\n {tableu_exception}")
-    with open('./scripts/temp.sh', 'w') as file:
-        file.write("exit 1")

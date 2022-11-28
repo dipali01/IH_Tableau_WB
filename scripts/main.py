@@ -18,19 +18,19 @@ def main(arguments):
     workbook_iteration = math.ceil(len(wb_list) / num_proc)
     iter_split_start, iter_split_end, jobs = 0, num_proc, []
     mpd = multiprocessing.Manager().list()
-    for idx, x in enumerate(wb_list):
+    for x in wb_list:
         mpd.append(
             {'_is_' + x['publish_wb_data']['wb_name'] + '_published': True,
              '_is_' + x['publish_wb_data']['wb_name'] + '_permissions_updated': True,
              '_is_' + x['publish_wb_data']['wb_name'] + '_datasource_updated': True})
 
-    print("mpd ::", mpd)
+    print("mpd at start ::", mpd)
     for _ in range(int(workbook_iteration)):
         for workbook in wb_list[iter_split_start:iter_split_end]:
             process = multiprocessing.Process(
                 target=service_func,
                 args=(workbook, arguments.username, arguments.password,
-                      arguments.produsername, arguments.prodpassword))
+                      arguments.produsername, arguments.prodpassword, mpd))
             jobs.append(process)
 
         for job in jobs:
@@ -43,7 +43,12 @@ def main(arguments):
         iter_split_end += num_proc
         jobs = []
 
+        print("mpd at end ::", mpd)
         # for i in mpd:
+        #     if i['_is_Book1_published'] == False or \
+        #         i['_is_Book1_permissions_updated'] == False or  \
+        #             i['_is_Book1_datasource_updated'] == False:
+        #         exit(1)
 
 
 if __name__ == '__main__':

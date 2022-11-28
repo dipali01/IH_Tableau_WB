@@ -3,11 +3,11 @@ Neccessory Module imports
 """
 import logging
 from publish import publish_wb, publish_ds
-from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh, raise_error
+from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh
 from permissions import query_permission, add_permission, delete_permission
 
 
-def service_func(data, username, password, prod_username, prod_password):
+def service_func(data, username, password, prod_username, prod_password, mpd):
     """
     Funcrion Description
     """
@@ -28,7 +28,10 @@ def service_func(data, username, password, prod_username, prod_password):
         if data['is_wb_publish']:
             wb_id = publish_wb(server, data)
     except Exception as tableu_exception:
-        raise_error('publish workbook', tableu_exception)
+        mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                           ['wb_name'] + '_published'] = False
+        logging.error(
+            "Something went wrong in publishing workbook.\n %s", tableu_exception)
 
     # Permissions Part
     try:
@@ -102,7 +105,10 @@ def service_func(data, username, password, prod_username, prod_password):
                         print(
                             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
     except Exception as tableu_exception:
-        raise_error('update permission of workbook', tableu_exception)
+        mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                           ['wb_name'] + '_permissions_updated'] = False
+        logging.error(
+            "Something went wrong in update permission of workbook.\n %s", tableu_exception)
 
     # Step: Sign Out to the Tableau Server
     server.auth.sign_out()
@@ -159,6 +165,7 @@ def service_func(data, username, password, prod_username, prod_password):
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
     except Exception as tableu_exception:
+        mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                           ['wb_name'] + '_datasource_updated'] = False
         logging.error(
             "Something went wrong in publish datasource.\n %s", tableu_exception)
-        exit(1)
