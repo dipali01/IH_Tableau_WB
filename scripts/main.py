@@ -26,7 +26,7 @@ def main(arguments):
              '_is_' + x['publish_wb_data']['wb_name'] + '_datasource_updated': True}))
 
     for i in mpd:
-        print("mpd at start ::", i.dict())
+        print("mpd at start ::", i.__dict__)
     for _ in range(int(workbook_iteration)):
         for workbook in wb_list[iter_split_start:iter_split_end]:
             process = multiprocessing.Process(
@@ -46,7 +46,7 @@ def main(arguments):
         jobs = []
 
         for i in mpd:
-            print("mpd at start ::", i.dict())
+            print("mpd at start ::", i.__dict__)
         # for i in mpd:
         #     if i['_is_Book1_published'] == False or \
         #         i['_is_Book1_permissions_updated'] == False or  \
