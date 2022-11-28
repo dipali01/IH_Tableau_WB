@@ -17,12 +17,12 @@ def main(arguments):
     num_proc = multiprocessing.cpu_count()
     workbook_iteration = math.ceil(len(wb_list) / num_proc)
     iter_split_start, iter_split_end, jobs = 0, num_proc, []
-    mpd = multiprocessing.Manager().dict({})
+    mpd = multiprocessing.Manager().list()
     for idx, x in enumerate(wb_list):
-        mpd.update(
-            {idx+1: {'_is_' + x['publish_wb_data']['wb_name'] + '_published': True, 
-            '_is_' + x['publish_wb_data']['wb_name'] + '_permissions_updated': True,
-            '_is_' + x['publish_wb_data']['wb_name'] + '_datasource_updated': True}})
+        mpd.append(
+            {idx+1: {'_is_' + x['publish_wb_data']['wb_name'] + '_published': True,
+                     '_is_' + x['publish_wb_data']['wb_name'] + '_permissions_updated': True,
+                     '_is_' + x['publish_wb_data']['wb_name'] + '_datasource_updated': True}})
 
     print("mpd ::", mpd)
     for _ in range(int(workbook_iteration)):
@@ -42,6 +42,8 @@ def main(arguments):
         iter_split_start += num_proc
         iter_split_end += num_proc
         jobs = []
+
+        # for i in mpd:
 
 
 if __name__ == '__main__':
