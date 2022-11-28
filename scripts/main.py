@@ -18,8 +18,8 @@ def main(arguments):
     workbook_iteration = math.ceil(len(wb_list) / num_proc)
     iter_split_start, iter_split_end, jobs = 0, num_proc, []
     mpd = multiprocessing.Manager().dict({})
-    for i,index in wb_list:
-        mpd.update({i[f'wb{index+1}']: True})
+    for idx, x in enumerate(wb_list):
+        mpd.update({x[f'wb{idx+1}']: True})
 
     print("mpd ::", mpd)
     for _ in range(int(workbook_iteration)):
