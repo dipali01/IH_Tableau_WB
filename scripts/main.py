@@ -48,13 +48,13 @@ def main(arguments):
         for i in mpd:
             for key, val in i.items():
                 if key == "wb_name":
-                    print(f"{val}:")
-                elif "_published" in key:
-                    print(f"-Published: {val}")
-                elif "_permissions_updated" in key:
-                    print(f"-Permission Updated: {val}")
-                elif "_datasource_updated" in key:
-                    print(f"-Datasource Updated: {val}")
+                    print('\033[1m' + f"{val}:" + '\033[0m')
+                elif "_published" in key and val is not None:
+                    print(f"\t-Published: {val}")
+                elif "_permissions_updated" in key and val is not None:
+                    print(f"\t-Permission Updated: {val}")
+                elif "_datasource_updated" in key and val is not None:
+                    print(f"\t-Datasource Updated: {val}")
 
         for i in mpd:
             for key, val in i.items():
