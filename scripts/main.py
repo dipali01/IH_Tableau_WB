@@ -19,7 +19,7 @@ def main(arguments):
     iter_split_start, iter_split_end, jobs = 0, num_proc, []
     mpd = multiprocessing.Manager().dict({})
     for idx, x in enumerate(wb_list):
-        mpd.update({x[f'wb{idx+1}']: True})
+        mpd.update({idx+1: { '_is_' + x['wb_name']+ '_published' : True}})
 
     print("mpd ::", mpd)
     for _ in range(int(workbook_iteration)):
