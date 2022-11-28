@@ -11,7 +11,7 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
     """
     Funcrion Description
     """
-    print(data['wb_no'])
+    tmp = data['wb_no']
     # Step: Sign In to the Tableau Server
     if data['publish_wb_data']['server_name'] == "dev":
         uname, pname, surl = username, password, data['dev_server_url']
@@ -166,7 +166,7 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
     except Exception as tableu_exception:
-        mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+        mpd[tmp]['_is_' + data['publish_wb_data']
                            ['wb_name'] + '_datasource_updated'] = False
         logging.error(
             "Something went wrong in publish datasource.\n %s", tableu_exception)
