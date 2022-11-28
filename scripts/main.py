@@ -19,11 +19,13 @@ def main(arguments):
     iter_split_start, iter_split_end, jobs = 0, num_proc, []
     mp_manager = multiprocessing.Manager()
     mpd = mp_manager.list()
-    for x in wb_list:
+
+    for data in wb_list:
         mpd.append(mp_manager.dict(
-            {'_is_' + x['publish_wb_data']['wb_name'] + '_published': True,
-             '_is_' + x['publish_wb_data']['wb_name'] + '_permissions_updated': True,
-             '_is_' + x['publish_wb_data']['wb_name'] + '_datasource_updated': True}))
+            {'wb_name': data['publish_wb_data']['wb_name'],
+             '_is_' + data['publish_wb_data']['wb_name'] + '_published': None,
+             '_is_' + data['publish_wb_data']['wb_name'] + '_permissions_updated': None,
+             '_is_' + data['publish_wb_data']['wb_name'] + '_datasource_updated': None}))
 
     for _ in range(int(workbook_iteration)):
         for workbook in wb_list[iter_split_start:iter_split_end]:
@@ -44,14 +46,10 @@ def main(arguments):
         jobs = []
 
         for i in mpd:
-            for x, y in i.items():
-                print(f"{x}: {y}")
-                if y == False:
-                    exit(1)
-            # if i['_is_Book1_published'] == False or \
-            #     i['_is_Book1_permissions_updated'] == False or \
-            #         i['_is_Book1_datasource_updated'] == False:
-            #     exit(1)
+            for key, val in i.items():
+                print(f"{key}: {val}")
+                # if val == False:
+                #     exit(1)
 
 
 if __name__ == '__main__':

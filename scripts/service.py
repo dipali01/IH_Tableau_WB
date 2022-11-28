@@ -28,6 +28,8 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
         # Step: Form a new workbook item and publish.
         if data['is_wb_publish']:
             wb_id = publish_wb(server, data)
+            mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                               ['wb_name'] + '_published'] = True
     except Exception as tableu_exception:
         mpd[data['wb_no']]['_is_' + data['publish_wb_data']
                            ['wb_name'] + '_published'] = False
@@ -105,6 +107,9 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
                             auth_token, permission_name, permission_mode, is_group)
                         print(
                             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
+
+                        mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                                           ['wb_name'] + '_permissions_updated'] = True
     except Exception as tableu_exception:
         mpd[data['wb_no']]['_is_' + data['publish_wb_data']
                            ['wb_name'] + '_permissions_updated'] = False
@@ -159,6 +164,9 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
                     datasources['ds_name'], dl_ds_file_path,
                     datasources['publish_ds_data']['publish_ds_site_name']
                 )
+
+                mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                                   ['wb_name'] + '_datasource_updated'] = True
 
                 # Refresh Datasource
                 ds_refresh(server, datasources['ds_name'], ds_id)
