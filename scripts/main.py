@@ -17,6 +17,8 @@ def main(arguments):
     num_proc = multiprocessing.cpu_count()
     workbook_iteration = math.ceil(len(wb_list) / num_proc)
     iter_split_start, iter_split_end, jobs = 0, num_proc, []
+    # manager = multiprocessing.Manager()
+    # d = manager.dict()
 
     for _ in range(int(workbook_iteration)):
         for workbook in wb_list[iter_split_start:iter_split_end]:
@@ -35,6 +37,7 @@ def main(arguments):
         iter_split_start += num_proc
         iter_split_end += num_proc
         jobs = []
+        exit(1)
 
 
 if __name__ == '__main__':
