@@ -168,5 +168,6 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
     except Exception as tableu_exception:
         mpd[tmp]['_is_' + data['publish_wb_data']
                            ['wb_name'] + '_datasource_updated'] = False
+        print(mpd)
         logging.error(
             "Something went wrong in publish datasource.\n %s", tableu_exception)
