@@ -20,9 +20,9 @@ def main(arguments):
     mpd = multiprocessing.Manager().list()
     for idx, x in enumerate(wb_list):
         mpd.append(
-            {idx+1: {'_is_' + x['publish_wb_data']['wb_name'] + '_published': True,
-                     '_is_' + x['publish_wb_data']['wb_name'] + '_permissions_updated': True,
-                     '_is_' + x['publish_wb_data']['wb_name'] + '_datasource_updated': True}})
+            {'_is_' + x['publish_wb_data']['wb_name'] + '_published': True,
+             '_is_' + x['publish_wb_data']['wb_name'] + '_permissions_updated': True,
+             '_is_' + x['publish_wb_data']['wb_name'] + '_datasource_updated': True})
 
     print("mpd ::", mpd)
     for _ in range(int(workbook_iteration)):
