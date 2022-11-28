@@ -45,14 +45,9 @@ def main(arguments):
 
         for i in mpd:
             for x1, x2 in i.items():
-                print(x1, x2)
-            if i['_is_Book1_published'] == False:
-                print(i['_is_Book1_published'])
-                exit(1)
-            if i['_is_Book1_permissions_updated'] == False:
-                exit(1)
-            if i['_is_Book1_datasource_updated'] == False:
-                exit(1)
+                if x1 == False:
+                    print(f"{x1}: {x2}")
+                    exit(1)
 
 
 if __name__ == '__main__':
