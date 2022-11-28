@@ -45,7 +45,7 @@ def main(arguments):
         iter_split_end += num_proc
         jobs = []
 
-        print('_'*25)
+        print('_' * 50)
         for i in mpd:
             for key, val in i.items():
                 if key == "wb_name":
