@@ -11,7 +11,7 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
     """
     Funcrion Description
     """
-    print(mpd[data['wb_no']])
+    print(data['wb_no'])
     # Step: Sign In to the Tableau Server
     if data['publish_wb_data']['server_name'] == "dev":
         uname, pname, surl = username, password, data['dev_server_url']
