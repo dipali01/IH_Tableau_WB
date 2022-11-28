@@ -44,6 +44,8 @@ def main(arguments):
         jobs = []
 
         for i in mpd:
+            for x, y in i.items():
+                print(f"{x}: {y}")
             if i['_is_Book1_published'] == False or \
                 i['_is_Book1_permissions_updated'] == False or \
                     i['_is_Book1_datasource_updated'] == False:
