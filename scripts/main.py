@@ -25,8 +25,8 @@ def main(arguments):
              '_is_' + x['publish_wb_data']['wb_name'] + '_permissions_updated': True,
              '_is_' + x['publish_wb_data']['wb_name'] + '_datasource_updated': True}))
 
-    for i in mpd:
-        print("mpd at start ::", i.dict())
+    # for i in mpd:
+    #     print("mpd at start ::", i.dict())
     for _ in range(int(workbook_iteration)):
         for workbook in wb_list[iter_split_start:iter_split_end]:
             process = multiprocessing.Process(
