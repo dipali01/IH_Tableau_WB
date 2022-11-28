@@ -7,7 +7,7 @@ from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_ref
 from permissions import query_permission, add_permission, delete_permission
 
 
-def temp_func(data, username, password, prod_username, prod_password):
+def service_func(data, username, password, prod_username, prod_password, mpd):
     """
     Funcrion Description
     """
@@ -27,16 +27,22 @@ def temp_func(data, username, password, prod_username, prod_password):
         # Step: Form a new workbook item and publish.
         if data['is_wb_publish']:
             wb_id = publish_wb(server, data)
+            mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                               ['wb_name'] + '_published'] = True
     except Exception as tableu_exception:
+        mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                           ['wb_name'] + '_published'] = False
         logging.error(
-            "Something went wrong in publish workbook.\n %s", tableu_exception)
-        exit(1)
+            "Something went wrong in publishing workbook.\n %s", tableu_exception)
 
     # Permissions Part
     try:
         if data['is_wb_permissions_update']:
             for permission_data in data['permissions']:
                 is_group = None
+
+                mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                                   ['wb_name'] + '_permissions_updated'] = True
 
                 # Step: Get the User or Group ID of permission assigned
                 if permission_data['permission_group_name'] and \
@@ -104,9 +110,10 @@ def temp_func(data, username, password, prod_username, prod_password):
                         print(
                             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
     except Exception as tableu_exception:
+        mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                           ['wb_name'] + '_permissions_updated'] = False
         logging.error(
             "Something went wrong in update permission of workbook.\n %s", tableu_exception)
-        exit(1)
 
     # Step: Sign Out to the Tableau Server
     server.auth.sign_out()
@@ -157,12 +164,16 @@ def temp_func(data, username, password, prod_username, prod_password):
                     datasources['publish_ds_data']['publish_ds_site_name']
                 )
 
+                mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                                   ['wb_name'] + '_datasource_updated'] = True
+
                 # Refresh Datasource
                 ds_refresh(server, datasources['ds_name'], ds_id)
 
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()
     except Exception as tableu_exception:
+        mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                           ['wb_name'] + '_datasource_updated'] = False
         logging.error(
-            "Something went wrong in datasource update.\n %s", tableu_exception)
-        exit(1)
+            "Something went wrong in publish datasource.\n %s", tableu_exception)
