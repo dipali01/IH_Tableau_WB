@@ -9,7 +9,7 @@ from permissions import query_permission, add_permission, delete_permission
 
 def service_func(data, username, password, prod_username, prod_password, mpd):
     """
-    Funcrion Description
+    This function call all internal methods and apis conditionally
     """
     try:
         # Step: Sign In to the Tableau Server
