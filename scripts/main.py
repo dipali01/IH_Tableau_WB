@@ -44,10 +44,10 @@ def main(arguments):
         jobs = []
 
         for i in mpd:
-            for x1, x2 in i.items():
-                if x1 == False:
-                    print(f"{x1}: {x2}")
-                    exit(1)
+            if i['_is_Book1_published'] == False or \
+                i['_is_Book1_permissions_updated'] == False or \
+                    i['_is_Book1_datasource_updated'] == False:
+                exit(1)
 
 
 if __name__ == '__main__':
