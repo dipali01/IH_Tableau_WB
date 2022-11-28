@@ -47,22 +47,23 @@ def main(arguments):
 
         for i in mpd:
             for key, val in i.items():
-                print(f"{key}: {val}")
-                print("--------------")
                 if key == "wb_name":
                     print(f"{val}:")
                 elif "_published" in key:
                     print(f"-Published: {val}")
-                    if val == False:
-                        exit(1)
                 elif "_permissions_updated" in key:
                     print(f"-Permission Updated: {val}")
-                    if val == False:
-                        exit(1)
                 elif "_datasource_updated" in key:
                     print(f"-Datasource Updated: {val}")
-                    if val == False:
-                        exit(1)
+
+        for i in mpd:
+            for key, val in i.items():
+                if "_published" in key and val == False:
+                    exit(1)
+                elif "_permissions_updated" in key and val == False:
+                    exit(1)
+                elif "_datasource_updated" in key and val == False:
+                    exit(1)
 
 
 if __name__ == '__main__':
