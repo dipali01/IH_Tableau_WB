@@ -41,6 +41,9 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
             for permission_data in data['permissions']:
                 is_group = None
 
+                mpd[data['wb_no']]['_is_' + data['publish_wb_data']
+                                   ['wb_name'] + '_permissions_updated'] = True
+
                 # Step: Get the User or Group ID of permission assigned
                 if permission_data['permission_group_name'] and \
                         not permission_data['permission_user_name']:
@@ -106,9 +109,6 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
                             auth_token, permission_name, permission_mode, is_group)
                         print(
                             f"\tPermission {permission_name} is set to {permission_mode} Successfully in {wb_id}\n")
-
-                        mpd[data['wb_no']]['_is_' + data['publish_wb_data']
-                                           ['wb_name'] + '_permissions_updated'] = True
     except Exception as tableu_exception:
         mpd[data['wb_no']]['_is_' + data['publish_wb_data']
                            ['wb_name'] + '_permissions_updated'] = False
