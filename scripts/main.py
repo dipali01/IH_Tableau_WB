@@ -44,9 +44,14 @@ def main(arguments):
         jobs = []
 
         for i in mpd:
-            if i['_is_Book1_published'] == False or \
-                i['_is_Book1_permissions_updated'] == False or  \
-                    i['_is_Book1_datasource_updated'] == False:
+            for x1, x2 in i.items():
+                print(x1, x2)
+            if i['_is_Book1_published'] == False:
+                print(i['_is_Book1_published'])
+                exit(1)
+            if i['_is_Book1_permissions_updated'] == False:
+                exit(1)
+            if i['_is_Book1_datasource_updated'] == False:
                 exit(1)
 
 
