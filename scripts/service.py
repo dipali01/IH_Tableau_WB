@@ -11,6 +11,7 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
     """
     This function call all internal methods and apis conditionally
     """
+    is_sign_in = False
     try:
         # Step: Sign In to the Tableau Server
         if data['is_wb_publish'] or data['is_wb_permissions_update']:
@@ -116,6 +117,7 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
                               ['wb_name'] + '_permissions_updated'] = False
         logging.error(
             "Something went wrong in update permission of workbook.\n %s", tableu_exception)
+            
     # Step: Sign Out to the Tableau Server
     if is_sign_in:
         server.auth.sign_out()
