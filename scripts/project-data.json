@@ -8,7 +8,7 @@
       "publish_wb_data": {
         "server_name": "prod",
         "site_id": "55239ed7-57b4-4b10-b269-b2b5fe71f280",
-        "site_name": "DataLabs",
+        "site_name": "DataLab",
         "project_path": "Development",
         "wb_name": "Book1",
         "file_path": "Book1.twbx",
