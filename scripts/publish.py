@@ -36,18 +36,21 @@ def publish_wb(server, data):
     return new_workbook._id
 
 
-def publish_ds(server, publish_ds_project_name, ds_name, dl_ds_file_path, publish_ds_site_name):
+def publish_ds(server, publish_ds_project_name, ds_name, dl_ds_file_path, publish_ds_site_name, conn_username, conn_password, conn_embed, conn_oauth):
     """
     This funciton get projcet id and pulish datasource
     """
     project_id = get_project_id(server, publish_ds_project_name, ds_name)
 
+    new_conn_creds = TSC.ConnectionCredentials(
+        conn_username, conn_password, embed=conn_embed, oauth=conn_oauth
+    )
     # Use the project id to create new datsource_item
     new_datasource = TSC.DatasourceItem(project_id)
 
     # publish data source (specified in file_path)
     new_datasource = server.datasources.publish(
-        new_datasource, dl_ds_file_path, 'Overwrite')
+        new_datasource, dl_ds_file_path, 'Overwrite', connection_credentials=new_conn_creds)
 
     print(
         f"\nSuccessfully published {ds_name} datasource in {publish_ds_project_name} in {publish_ds_site_name} site.")
