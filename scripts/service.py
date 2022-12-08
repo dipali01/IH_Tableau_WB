@@ -54,11 +54,7 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
                 ds_id = publish_ds(
                     server, datasources['publish_ds_data']['publish_ds_project_name'],
                     datasources['ds_name'], dl_ds_file_path,
-                    datasources['publish_ds_data']['publish_ds_site_name'],
-                    datasources['publish_ds_data']['conn_username'],
-                    datasources['publish_ds_data']['conn_password'],
-                    datasources['publish_ds_data']['conn_embed'],
-                    datasources['publish_ds_data']['conn_oauth']
+                    datasources['publish_ds_data']['publish_ds_site_name']
                 )
 
                 mpd[data['index_id']]['_is_' + data['publish_wb_data']
