@@ -49,7 +49,6 @@ def publish_ds(server, publish_ds_project_name, ds_name, dl_ds_file_path, publis
     new_datasource = server.datasources.publish(
         new_datasource, dl_ds_file_path, 'Overwrite')
 
-    print("new_datasource ::", new_datasource.__dict__)
     print(
         f"\nSuccessfully published {ds_name} datasource in {publish_ds_project_name} in {publish_ds_site_name} site.")
 
