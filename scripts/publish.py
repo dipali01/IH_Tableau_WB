@@ -23,7 +23,6 @@ def publish_wb(server, data):
         new_workbook, wb_path, "Overwrite", hidden_views=data['publish_wb_data']['hidden_views']
         if len(data['publish_wb_data']['hidden_views']) > 0 else None)
 
-    print("new_workbook ::", new_workbook.__dict__)
     print(
         f"\nSuccessfully published {data['publish_wb_data']['file_path']} Workbook in {data['publish_wb_data']['project_path']} project in {data['publish_wb_data']['site_name']} site.")
 
@@ -50,6 +49,7 @@ def publish_ds(server, publish_ds_project_name, ds_name, dl_ds_file_path, publis
     new_datasource = server.datasources.publish(
         new_datasource, dl_ds_file_path, 'Overwrite')
 
+    print("new_datasource ::", new_datasource.__dict__)
     print(
         f"\nSuccessfully published {ds_name} datasource in {publish_ds_project_name} in {publish_ds_site_name} site.")
 
