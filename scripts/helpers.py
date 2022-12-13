@@ -110,8 +110,8 @@ def ds_refresh(server, ds_name, ds_id):
     # # call the refresh method with the data source item
     # refreshed_datasource = server.datasources.refresh(datasource)
     # print(f"Datasource {ds_name} refresh successfully.")
-
-    resource = server.datasources.get_by_id(ds_id)
+    print("ds_id ::", ds_id)
+    resource = server.datasources.get_by_id('bd5834d1-24f1-44cb-a1f6-b7b9c5ee5dc3')
     # trigger the refresh, you'll get a job id back which can be used to poll for when the refresh is done
     job = server.datasources.refresh(resource)
     print(job.__dict__)
