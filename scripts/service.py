@@ -51,18 +51,17 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
                 )
 
                 # Publish Datasource
-                # ds_id = publish_ds(
-                #     server, datasources['publish_ds_data']['publish_ds_project_name'],
-                #     datasources['ds_name'], dl_ds_file_path,
-                #     datasources['publish_ds_data']['publish_ds_site_name']
-                # )
+                ds_id = publish_ds(
+                    server, datasources['publish_ds_data']['publish_ds_project_name'],
+                    datasources['ds_name'], dl_ds_file_path,
+                    datasources['publish_ds_data']['publish_ds_site_name']
+                )
 
                 mpd[data['index_id']]['_is_' + data['publish_wb_data']
                                       ['wb_name'] + '_datasource_updated'] = True
 
                 # Refresh Datasource
-                # ds_refresh(server, datasources['ds_name'], ds_id)
-                ds_refresh(server, datasources['ds_name'])
+                ds_refresh(server, datasources['ds_name'], ds_id)
 
             # Step: Sign Out to the Tableau Server
             server.auth.sign_out()

@@ -101,20 +101,12 @@ def dl_ds(server, ds_id):
     return file_path
 
 
-def ds_refresh(server, ds_name):
+def ds_refresh(server, ds_name, ds_id):
     """
     This funciton refresh the datasource
     """
-    # datasource = server.datasources.get_by_id(ds_id)
+    datasource = server.datasources.get_by_id(ds_id)
 
-    # # call the refresh method with the data source item
-    # refreshed_datasource = server.datasources.refresh(datasource)
-    # print(f"Datasource {ds_name} refresh successfully.")
-    # print("ds_id ::", ds_id)
-
-    resource = server.datasources.get_by_id(
-        'bd5834d1-24f1-44cb-a1f6-b7b9c5ee5dc3')
-
-    job = server.datasources.refresh(resource)
-
-    print("job.__dict__ ::", job.__dict__)
+    # call the refresh method with the data source item
+    server.datasources.refresh(datasource)
+    print(f"Datasource {ds_name} refresh successfully.")
