@@ -106,8 +106,9 @@ def ds_refresh(server, ds_name, ds_id):
     This funciton refresh the datasource
     """
     datasource = server.datasources.get_by_id(ds_id)
-
+    print("datasource ::", datasource.__dict__)
     # call the refresh method with the data source item
-    a = server.datasources.refresh(datasource)
-    print(a.__dict__)
+    refreshed_datasource = server.datasources.refresh(datasource)
+    print("refreshed_datasource ::", refreshed_datasource.__dict__)
+
     print(f"Datasource {ds_name} refresh successfully.")
