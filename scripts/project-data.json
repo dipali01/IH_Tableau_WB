@@ -10,12 +10,12 @@
         "site_id": "499f7f8a-b012-4fb7-980d-349515374f6e",
         "site_name": "DataLab",
         "project_path": "Development",
-        "wb_name": "Sample",
-        "file_path": "Sample.twb",
-        "tags": [],
+        "wb_name": "Fleet Performance Dashboard",
+        "file_path": "Fleet Performance Dashboard.twbx",
+        "tags": ["new"],
         "hidden_views": [],
         "is_site_default": false,
-        "show_tabs": false
+        "show_tabs": true
       },
       "is_wb_permissions_update": true,
       "permissions": [
@@ -45,17 +45,17 @@
       "is_datasource_update": true,
       "datasources": [
         {
-          "ds_name": "Sample - Superstore",
+          "ds_name": "tableau_ari_geotab",
           "get_ds_data": {
             "get_ds_server_name": "dev",
             "get_ds_site_name": "Enterprise",
-            "get_ds_project_name": "Technology",
+            "get_ds_project_name": "RTM",
             "is_site_default": true
           },
           "publish_ds_data": {
             "publish_ds_server_name": "prod",
             "publish_ds_site_name": "DataLab",
-            "publish_ds_project_name": "Development",
+            "publish_ds_project_name": "Dev Final",
             "is_site_default": false
           }
         }
