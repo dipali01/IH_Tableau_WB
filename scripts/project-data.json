@@ -17,7 +17,7 @@
         "is_site_default": false,
         "show_tabs": false
       },
-      "is_wb_permissions_update": false,
+      "is_wb_permissions_update": true,
       "permissions": [
         {
           "permission_group_name": "",
@@ -78,7 +78,7 @@
         "is_site_default": false,
         "show_tabs": false
       },
-      "is_wb_permissions_update": false,
+      "is_wb_permissions_update": true,
       "permissions": [
         {
           "permission_group_name": "",
@@ -103,7 +103,7 @@
           }
         }
       ],
-      "is_datasource_update": true,
+      "is_datasource_update": false,
       "datasources": [
         {
           "ds_name": "Financial Sample1",
@@ -132,8 +132,8 @@
         "site_id": "499f7f8a-b012-4fb7-980d-349515374f6e",
         "site_name": "DataLab",
         "project_path": "Development",
-        "wb_name": "Forecast 2022.1",
-        "file_path": "Forecast 2022.1.twbx",
+        "wb_name": "DT new Extract",
+        "file_path": "DT new Extract.twbx",
         "tags": [],
         "hidden_views": [],
         "is_site_default": false,
