@@ -14,7 +14,7 @@
         "file_path": "Fleet Performance Dashboard_New.twbx",
         "tags": [],
         "hidden_views": [],
-        "is_site_default": true,
+        "is_site_default": false,
         "show_tabs": true
       },
       "is_wb_permissions_update": true,
@@ -75,7 +75,7 @@
         "file_path": "DT new Extract.twbx",
         "tags": [],
         "hidden_views": [],
-        "is_site_default": true,
+        "is_site_default": false,
         "show_tabs": true
       },
       "is_wb_permissions_update": true,
