@@ -20,7 +20,7 @@ def publish_wb(server, data):
         project_id=project_id,
         show_tabs=data['publish_wb_data']['show_tabs'])
     new_workbook = server.workbooks.publish(
-        new_workbook, wb_path, "Overwrite", hidden_views=data['publish_wb_data']['hidden_views']
+        new_workbook, wb_path, "Overwrite", as_job=True, hidden_views=data['publish_wb_data']['hidden_views']
         if len(data['publish_wb_data']['hidden_views']) > 0 else None)
 
     print(
