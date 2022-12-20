@@ -5,7 +5,7 @@ import logging
 from publish import publish_wb, publish_ds
 from helpers import sign_in, get_group_id, get_user_id, get_ds_id, dl_ds, ds_refresh
 from permissions import query_permission, add_permission, delete_permission
-
+import time
 
 def service_func(data, username, password, prod_username, prod_password, mpd):
     """
@@ -86,6 +86,7 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
                     'site_name'], data['publish_wb_data']['is_site_default']
             )
 
+            time.sleep(60)
             is_sign_in = True
 
         if data['is_wb_publish']:
