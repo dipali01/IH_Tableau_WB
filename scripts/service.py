@@ -101,6 +101,7 @@ def service_func(data, username, password, prod_username, prod_password, mpd):
     # Permissions Part
     try:
         if data['is_wb_permissions_update']:
+            print(mpd[data['index_id']]['_is_' + data['publish_wb_data']['wb_name'] + '_published'])
             for permission_data in data['permissions']:
                 is_group = None
 
