@@ -6,10 +6,10 @@
       "prod_server_url": "http://tableau-alb-316754542.us-east-1.elb.amazonaws.com/",
       "is_wb_publish": true,
       "publish_wb_data": {
-        "server_name": "prod",
-        "site_id": "499f7f8a-b012-4fb7-980d-349515374f6e",
+        "server_name": "dev",
+        "site_id": "e4fc3628-68b4-4a72-a956-9fc3c02192f4",
         "site_name": "DataLab",
-        "project_path": "Development",
+        "project_path": "",
         "wb_name": "Fleet Dev wbx v2",
         "file_path": "Fleet Dev wbx v2.twbx",
         "tags": [],
