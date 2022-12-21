@@ -7,8 +7,8 @@
       "is_wb_publish": true,
       "publish_wb_data": {
         "server_name": "dev",
-        "site_id": "e4fc3628-68b4-4a72-a956-9fc3c02192f4",
-        "site_name": "DataLab",
+        "site_id": "834abe2d-18ac-46d3-9346-a2f3079941d2",
+        "site_name": "Enterprise",
         "project_path": "Development",
         "wb_name": "Fleet Dev wbx v2",
         "file_path": "Fleet Dev wbx v2.twbx",
